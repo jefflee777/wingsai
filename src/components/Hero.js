@@ -6,10 +6,6 @@ import { FaRocket, FaMobileAlt, FaArrowRight } from 'react-icons/fa';
 export default function HeroSection() {
   return (
     <section className="w-full min-h-screen flex flex-col lg:flex-row items-center px-4 sm:px-6 md:px-12 lg:px-20 py-12 bg-background text-foreground relative overflow-hidden">
-      {/* Floating background elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-accent-glow opacity-10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-40 right-20 w-40 h-40 bg-accent-main opacity-8 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      
       {/* Content Section - Left Side */}
       <div className="flex-1 flex flex-col justify-center max-w-2xl relative z-10">
         {/* Badge */}
@@ -36,12 +32,12 @@ export default function HeroSection() {
           initial={{ opacity: 0, x: -30 }} 
           animate={{ opacity: 1, x: 0 }} 
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-4xl sm:text-5xl lg:text-7xl font-black mb-6 leading-[1.1] tracking-tight"
+          className="text-4xl sm:text-5xl lg:text-7xl sm:text-left text-center font-bold mb-6 leading-[1.1] tracking-tight"
         >
           Travel{' '}
           <span className="relative">
             Smarter
-            <div className="absolute -bottom-2 left-0 w-full h-1 bg-accent-main rounded-full"></div>
+            <div className="absolute -bottom-0.5 left-0 w-full h-1 bg-accent-main rounded-full"></div>
           </span>
           <br />
           <span className="text-accent-main font-black">Earn</span> as You{' '}
@@ -52,7 +48,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, x: -30 }} 
           animate={{ opacity: 1, x: 0 }} 
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-xl sm:text-2xl text-text-secondary mb-10 leading-relaxed font-light max-w-xl"
+          className="text-sm sm:text-2xl sm:text-left text-center text-balance text-text-secondary mb-10 leading-relaxed font-light max-w-xl"
         >
           Transform every journey into rewards with{' '}
           <span className="font-semibold text-foreground">Wings AI</span>. 
@@ -67,17 +63,17 @@ export default function HeroSection() {
           className="flex flex-col sm:flex-row gap-4 sm:gap-6"
         >
           {/* Primary Button */}
-          <button className="group relative bg-white text-background font-bold px-8 py-4 rounded-xl text-lg overflow-hidden premium-button-primary">
+          <button className="group relative sm:scale-100 scale-75 bg-white text-background font-bold px-8 py-4 rounded-xl text-lg overflow-hidden premium-button-primary">
             <div className="absolute inset-0 bg-gradient-to-r from-accent-main to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="relative z-10 flex items-center justify-center group-hover:text-white transition-colors duration-300">
-              <FaRocket className="mr-3 text-xl group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300" />
+            <div className="relative z-10 text-center flex items-center justify-center group-hover:text-white transition-colors duration-300">
+              {/* <FaRocket className="mr-3 text-xl group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300" /> */}
               Start Your Journey
               <FaArrowRight className="ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
             </div>
           </button>
 
           {/* Secondary Button */}
-          <button className="group relative bg-transparent border-2 border-border-strong text-foreground font-semibold px-8 py-4 rounded-xl text-lg overflow-hidden premium-button-secondary">
+          <button className="group relative bg-transparent sm:scale-100 scale-75 border-2 border-border-strong text-foreground font-semibold px-8 py-4 rounded-xl text-lg overflow-hidden premium-button-secondary">
             <div className="absolute inset-0 bg-gradient-to-r from-accent-glow to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="relative z-10 flex items-center justify-center group-hover:text-background transition-colors duration-300">
               <FaMobileAlt className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
@@ -91,7 +87,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-border-soft"
+          className="sm:flex hidden flex-wrap gap-8 mt-12 pt-8 border-t border-border-soft"
         >
           <div className="flex flex-col">
             <span className="text-2xl font-bold text-accent-glow">10K+</span>
@@ -120,7 +116,7 @@ export default function HeroSection() {
           <motion.div 
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-8 -left-8 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
+            className="absolute -top-8 -left-8 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
           >
             {/* <div className="text-2xl mb-2">🎯</div> */}
             <div className="text-xs text-text-secondary">AI Recommendations</div>
@@ -129,7 +125,7 @@ export default function HeroSection() {
           <motion.div 
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute -bottom-6 -right-6 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
+            className="absolute bottom-6 -left-6 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
           >
             {/* <div className="text-2xl mb-2">🪙</div> */}
             <div className="text-xs text-text-secondary">Earn Tokens</div>
@@ -138,7 +134,7 @@ export default function HeroSection() {
           <motion.div 
             animate={{ x: [0, 5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute top-1/2 -right-12 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
+            className="absolute top-1/2 -right-28 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
           >
             {/* <div className="text-2xl mb-2">🔗</div> */}
             <div className="text-xs text-text-secondary whitespace-nowrap">Blockchain Verified</div>
