@@ -122,7 +122,7 @@ export default function HeroSection() {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -top-8 -left-8 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
           >
-            <div className="text-2xl mb-2">🎯</div>
+            {/* <div className="text-2xl mb-2">🎯</div> */}
             <div className="text-xs text-text-secondary">AI Recommendations</div>
           </motion.div>
           
@@ -131,7 +131,7 @@ export default function HeroSection() {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             className="absolute -bottom-6 -right-6 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
           >
-            <div className="text-2xl mb-2">🪙</div>
+            {/* <div className="text-2xl mb-2">🪙</div> */}
             <div className="text-xs text-text-secondary">Earn Tokens</div>
           </motion.div>
           
@@ -140,20 +140,21 @@ export default function HeroSection() {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             className="absolute top-1/2 -right-12 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
           >
-            <div className="text-2xl mb-2">🔗</div>
+            {/* <div className="text-2xl mb-2">🔗</div> */}
             <div className="text-xs text-text-secondary whitespace-nowrap">Blockchain Verified</div>
           </motion.div>
           
-          <div className="relative bg-border-soft backdrop-blur-sm rounded-3xl p-8 border border-border-soft">
+          {/* <div className="relative bg-border-soft backdrop-blur-sm rounded-3xl p-8 border border-border-soft"> */}
             <Image 
               src="/heroimage.png" 
               alt="Wings AI Travel to Earn Platform" 
               width={500} 
-              height={400} 
-              className="rounded-2xl object-contain max-w-full h-auto"
+              height={500} 
+              quality={100}
+              className="rounded-2xl object-contain max-w-full h-auto sm:scale-125 scale-100"
               priority
             />
-          </div>
+          {/* </div> */}
         </div>
       </motion.div>
 
