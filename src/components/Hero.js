@@ -1,136 +1,231 @@
 "use client"
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FaRocket, FaMobileAlt } from 'react-icons/fa';
+import { FaRocket, FaMobileAlt, FaArrowRight } from 'react-icons/fa';
 
 export default function HeroSection() {
   return (
     <section className="w-full min-h-screen flex flex-col lg:flex-row items-center px-4 sm:px-6 md:px-12 lg:px-20 py-12 bg-background text-foreground relative overflow-hidden">
-      {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-blue-800 opacity-90"></div>
+      {/* Floating background elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-accent-glow opacity-10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-40 right-20 w-40 h-40 bg-accent-main opacity-8 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       {/* Content Section - Left Side */}
       <div className="flex-1 flex flex-col justify-center max-w-2xl relative z-10">
+        {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }} 
+          initial={{ opacity: 0, y: -20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2 bg-border-soft backdrop-blur-sm border border-border-soft rounded-full px-4 py-2 mb-6 w-fit"
+        >
+          <div className="w-2 h-2 bg-accent-glow rounded-full animate-pulse"></div>
+          <span className="text-sm font-medium text-text-secondary">World's First Travel-to-Earn Platform</span>
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, x: -30 }} 
           animate={{ opacity: 1, x: 0 }} 
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-4"
         >
           <span className="text-5xl md:text-6xl" role="img" aria-label="airplane">✈️</span>
         </motion.div>
         
         <motion.h1 
-          initial={{ opacity: 0, x: -50 }} 
+          initial={{ opacity: 0, x: -30 }} 
           animate={{ opacity: 1, x: 0 }} 
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-4xl sm:text-5xl lg:text-7xl font-black mb-6 leading-[1.1] tracking-tight"
         >
-          Travel Smarter.{' '}
-          <span className="text-transparent bg-gradient-to-r from-accent-main to-accent-glow bg-clip-text">
-            Earn as You Go.
+          Travel{' '}
+          <span className="relative">
+            Smarter
+            <div className="absolute -bottom-2 left-0 w-full h-1 bg-accent-main rounded-full"></div>
           </span>
+          <br />
+          <span className="text-accent-main font-black">Earn</span> as You{' '}
+          <span className="italic font-light">Go</span>
         </motion.h1>
         
         <motion.p
-          initial={{ opacity: 0, x: -50 }} 
+          initial={{ opacity: 0, x: -30 }} 
           animate={{ opacity: 1, x: 0 }} 
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg sm:text-xl lg:text-2xl text-text-secondary mb-10 leading-relaxed"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-xl sm:text-2xl text-text-secondary mb-10 leading-relaxed font-light max-w-xl"
         >
-          Wings AI is the world's first{' '}
-          <span className="font-semibold text-accent-glow">Travel-to-Earn platform</span>{' '}
-          that rewards you with tokens for exploring destinations, checking in, and sharing your journey. 
-          Powered by AI + blockchain, your adventures now come with real value.
+          Transform every journey into rewards with{' '}
+          <span className="font-semibold text-foreground">Wings AI</span>. 
+          Explore destinations, earn tokens, and unlock real-world value through 
+          our AI-powered blockchain ecosystem.
         </motion.p>
 
         <motion.div 
-          initial={{ opacity: 0, y: 30 }} 
+          initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
           className="flex flex-col sm:flex-row gap-4 sm:gap-6"
         >
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            className="group relative bg-gradient-to-br from-accent-main via-red-500 to-pink-600 text-white font-semibold px-8 py-4 rounded-lg text-lg premium-button-3d transform-gpu transition-all duration-200"
-          >
-            <FaRocket className="inline mr-3 text-xl align-middle group-active:rotate-12 transition-transform duration-200" />
-            Start Your Journey
-          </motion.button>
+          {/* Primary Button */}
+          <button className="group relative bg-white text-background font-bold px-8 py-4 rounded-xl text-lg overflow-hidden premium-button-primary">
+            <div className="absolute inset-0 bg-gradient-to-r from-accent-main to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="relative z-10 flex items-center justify-center group-hover:text-white transition-colors duration-300">
+              <FaRocket className="mr-3 text-xl group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300" />
+              Start Your Journey
+              <FaArrowRight className="ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+            </div>
+          </button>
 
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            className="group relative bg-gradient-to-br from-accent-glow via-cyan-400 to-blue-500 text-white font-semibold px-8 py-4 rounded-lg text-lg premium-button-3d-secondary transform-gpu transition-all duration-200"
-          >
-            <FaMobileAlt className="inline mr-3 text-xl align-middle group-active:scale-110 transition-transform duration-200" />
-            Try the Mini App
-          </motion.button>
+          {/* Secondary Button */}
+          <button className="group relative bg-transparent border-2 border-border-strong text-foreground font-semibold px-8 py-4 rounded-xl text-lg overflow-hidden premium-button-secondary">
+            <div className="absolute inset-0 bg-gradient-to-r from-accent-glow to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="relative z-10 flex items-center justify-center group-hover:text-background transition-colors duration-300">
+              <FaMobileAlt className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
+              Try Mini App
+            </div>
+          </button>
+        </motion.div>
+
+        {/* Stats or trust indicators */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-border-soft"
+        >
+          <div className="flex flex-col">
+            <span className="text-2xl font-bold text-accent-glow">10K+</span>
+            <span className="text-sm text-text-secondary">Early Users</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-2xl font-bold text-accent-main">150+</span>
+            <span className="text-sm text-text-secondary">Destinations</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-2xl font-bold text-foreground">24/7</span>
+            <span className="text-sm text-text-secondary">AI Support</span>
+          </div>
         </motion.div>
       </div>
 
       {/* Image Section - Right Side */}
       <motion.div 
-        initial={{ opacity: 0, x: 50 }} 
-        animate={{ opacity: 1, x: 0 }} 
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="flex-1 mt-12 lg:mt-0 flex justify-center items-center relative z-10"
+        initial={{ opacity: 0, scale: 0.8 }} 
+        animate={{ opacity: 1, scale: 1 }} 
+        transition={{ duration: 1, delay: 0.4 }}
+        className="flex-1 mt-16 lg:mt-0 flex justify-center items-center relative z-10"
       >
         <div className="relative">
-          {/* Glow effect behind image */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-accent-main to-accent-glow rounded-2xl blur-2xl opacity-20 animate-pulse"></div>
+          {/* Floating cards around the main image */}
+          <motion.div 
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-8 -left-8 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
+          >
+            <div className="text-2xl mb-2">🎯</div>
+            <div className="text-xs text-text-secondary">AI Recommendations</div>
+          </motion.div>
           
-          {/* <Image 
-            src="" 
-            alt="Wings AI Travel to Earn Platform" 
-            width={600} 
-            height={500} 
-            className="relative rounded-2xl object-contain max-w-full h-auto"
-            priority
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-          /> */}
+          <motion.div 
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute -bottom-6 -right-6 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
+          >
+            <div className="text-2xl mb-2">🪙</div>
+            <div className="text-xs text-text-secondary">Earn Tokens</div>
+          </motion.div>
+          
+          <motion.div 
+            animate={{ x: [0, 5, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            className="absolute top-1/2 -right-12 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
+          >
+            <div className="text-2xl mb-2">🔗</div>
+            <div className="text-xs text-text-secondary whitespace-nowrap">Blockchain Verified</div>
+          </motion.div>
+          
+          <div className="relative bg-border-soft backdrop-blur-sm rounded-3xl p-8 border border-border-soft">
+            {/* <Image 
+              src="/images/hero-travel.png" 
+              alt="Wings AI Travel to Earn Platform" 
+              width={500} 
+              height={400} 
+              className="rounded-2xl object-contain max-w-full h-auto"
+              priority
+            /> */}
+          </div>
         </div>
       </motion.div>
 
       {/* Custom 3D Button Styles */}
       <style jsx>{`
-        .premium-button-3d {
+        .premium-button-primary {
           box-shadow: 
-            0 6px 0 #d63031,
-            0 12px 20px rgba(214, 48, 49, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+            0 0 0 1px rgba(255, 255, 255, 0.1),
+            0 8px 16px rgba(0, 0, 0, 0.1),
+            0 4px 0 rgba(200, 200, 200, 0.8),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+          transform: perspective(100px) rotateX(5deg);
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .premium-button-3d:active {
+        .premium-button-primary:hover {
+          transform: perspective(100px) rotateX(5deg) translateY(-2px);
           box-shadow: 
-            0 2px 0 #d63031,
-            0 4px 8px rgba(214, 48, 49, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
-          transform: translateY(4px);
+            0 0 0 1px rgba(255, 255, 255, 0.2),
+            0 12px 24px rgba(0, 0, 0, 0.15),
+            0 6px 0 rgba(200, 200, 200, 0.8),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
         }
         
-        .premium-button-3d-secondary {
+        .premium-button-primary:active {
+          transform: perspective(100px) rotateX(5deg) translateY(2px);
           box-shadow: 
-            0 6px 0 #0984e3,
-            0 12px 20px rgba(9, 132, 227, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+            0 0 0 1px rgba(255, 255, 255, 0.1),
+            0 4px 8px rgba(0, 0, 0, 0.1),
+            0 1px 0 rgba(200, 200, 200, 0.8),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
         }
         
-        .premium-button-3d-secondary:active {
+        .premium-button-secondary {
           box-shadow: 
-            0 2px 0 #0984e3,
-            0 4px 8px rgba(9, 132, 227, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
-          transform: translateY(4px);
+            0 0 0 2px rgba(255, 255, 255, 0.3),
+            0 8px 16px rgba(0, 0, 0, 0.05),
+            0 4px 0 rgba(255, 255, 255, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          transform: perspective(100px) rotateX(5deg);
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          backdrop-filter: blur(10px);
+        }
+        
+        .premium-button-secondary:hover {
+          transform: perspective(100px) rotateX(5deg) translateY(-2px);
+          box-shadow: 
+            0 0 0 2px rgba(255, 255, 255, 0.5),
+            0 12px 24px rgba(0, 0, 0, 0.1),
+            0 6px 0 rgba(255, 255, 255, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .premium-button-secondary:active {
+          transform: perspective(100px) rotateX(5deg) translateY(2px);
+          box-shadow: 
+            0 0 0 2px rgba(255, 255, 255, 0.3),
+            0 4px 8px rgba(0, 0, 0, 0.05),
+            0 1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         
         @media (max-width: 640px) {
-          .premium-button-3d,
-          .premium-button-3d-secondary {
+          .premium-button-primary,
+          .premium-button-secondary {
             width: 100%;
-            justify-content: center;
+            transform: perspective(100px) rotateX(3deg);
+          }
+          
+          .premium-button-primary:hover,
+          .premium-button-secondary:hover {
+            transform: perspective(100px) rotateX(3deg) translateY(-1px);
           }
         }
       `}</style>
