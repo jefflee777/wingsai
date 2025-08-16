@@ -35,9 +35,11 @@ export default function HeroSection() {
           className="text-4xl sm:text-5xl lg:text-7xl sm:text-left text-center font-bold mb-6 leading-[1.1] tracking-tight"
         >
           Travel{' '}
-          <span className="relative">
+          <span className="relative px-2 text-4xl sm:text-5xl lg:text-7xl">
             Smarter
-            <div className="absolute -bottom-0.5 left-0 w-full h-1 bg-accent-main rounded-full"></div>
+            <div className="absolute left-0 sm:top-4 top-2 w-full h-fit rounded-full">
+                <Image src='/circle.svg' alt='svg' width={300} height={200} className='scale-[124%]'/>
+            </div>
           </span>
           <br />
           <span className="text-accent-main font-black">Earn</span> as You{' '}
@@ -118,8 +120,7 @@ export default function HeroSection() {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -top-8 -left-8 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
           >
-            {/* <div className="text-2xl mb-2">🎯</div> */}
-            <div className="text-xs text-text-secondary">AI Recommendations</div>
+            <div className="text-sm font-semibold text-text-secondary">AI Recommendations</div>
           </motion.div>
           
           <motion.div 
@@ -127,8 +128,7 @@ export default function HeroSection() {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             className="absolute bottom-6 -left-6 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
           >
-            {/* <div className="text-2xl mb-2">🪙</div> */}
-            <div className="text-xs text-text-secondary">Earn Tokens</div>
+            <div className="text-sm font-semibold text-text-secondary">Earn Tokens</div>
           </motion.div>
           
           <motion.div 
@@ -136,11 +136,9 @@ export default function HeroSection() {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             className="absolute top-1/2 -right-28 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
           >
-            {/* <div className="text-2xl mb-2">🔗</div> */}
-            <div className="text-xs text-text-secondary whitespace-nowrap">Blockchain Verified</div>
+            <div className="text-sm font-semibold text-text-secondary whitespace-nowrap">Blockchain Verified</div>
           </motion.div>
           
-          {/* <div className="relative bg-border-soft backdrop-blur-sm rounded-3xl p-8 border border-border-soft"> */}
             <Image 
               src="/heroimage.png" 
               alt="Wings AI Travel to Earn Platform" 
@@ -150,7 +148,6 @@ export default function HeroSection() {
               className="rounded-2xl object-contain max-w-full h-auto sm:scale-125 scale-100"
               priority
             />
-          {/* </div> */}
         </div>
       </motion.div>
 
