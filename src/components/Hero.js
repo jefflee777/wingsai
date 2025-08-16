@@ -13,7 +13,7 @@ export default function HeroSection() {
       {/* Content Section - Left Side */}
       <div className="flex-1 flex flex-col justify-center max-w-2xl relative z-10">
         {/* Badge */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: -20 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.6 }}
@@ -30,7 +30,7 @@ export default function HeroSection() {
           className="mb-4"
         >
           <span className="text-5xl md:text-6xl" role="img" aria-label="airplane">✈️</span>
-        </motion.div>
+        </motion.div> */}
         
         <motion.h1 
           initial={{ opacity: 0, x: -30 }} 
@@ -145,14 +145,14 @@ export default function HeroSection() {
           </motion.div>
           
           <div className="relative bg-border-soft backdrop-blur-sm rounded-3xl p-8 border border-border-soft">
-            {/* <Image 
-              src="/images/hero-travel.png" 
+            <Image 
+              src="/heroimage.png" 
               alt="Wings AI Travel to Earn Platform" 
               width={500} 
               height={400} 
               className="rounded-2xl object-contain max-w-full h-auto"
               priority
-            /> */}
+            />
           </div>
         </div>
       </motion.div>
