@@ -2,6 +2,9 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaRocket, FaMobileAlt, FaArrowRight } from 'react-icons/fa';
+import { GiArtificialIntelligence } from "react-icons/gi";
+import { MdGeneratingTokens, MdOutlineVerified } from "react-icons/md";
+
 
 export default function HeroSection() {
   return (
@@ -118,25 +121,25 @@ export default function HeroSection() {
           <motion.div 
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-8 -left-8 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
+            className="absolute -top-8 -left-8 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-2.5 border border-border-soft"
           >
-            <div className="text-sm font-semibold text-text-secondary">AI Recommendations</div>
+            <div className="text-sm font-semibold text-text-secondary flex items-center gap-2"><div className='bg-[#FF5300] inline-block p-1 rounded-lg'><GiArtificialIntelligence size={30} color='white'/></div> AI Recommendations</div>
           </motion.div>
           
           <motion.div 
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-6 -left-6 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
+            className="absolute bottom-6 -left-6 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-2.5 border border-border-soft"
           >
-            <div className="text-sm font-semibold text-text-secondary">Earn Tokens</div>
+            <div className="text-sm font-semibold text-text-secondary flex items-center gap-2"><div className='bg-green-600 inline-block p-1 rounded-lg'><MdGeneratingTokens size={30} color='white'/></div> Earn Tokens</div>
           </motion.div>
           
           <motion.div 
             animate={{ x: [0, 5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute top-1/2 -right-28 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-4 border border-border-soft"
+            className="absolute top-1/2 -right-28 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-2.5 border border-border-soft"
           >
-            <div className="text-sm font-semibold text-text-secondary whitespace-nowrap">Blockchain Verified</div>
+            <div className="text-sm font-semibold text-text-secondary flex items-center gap-2"><div className='bg-blue-700 inline-block p-1 rounded-lg'><MdOutlineVerified size={30} color='white'/></div> Blockchain Verified</div>
           </motion.div>
           
             <Image 
