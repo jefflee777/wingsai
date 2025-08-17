@@ -6,7 +6,7 @@ import { FaXTwitter } from "react-icons/fa6";
 // Custom SVG underline component for highlighted text
 const HighlightedText = ({ children }) => {
   return (
-    <span className="relative inline-block font-semibold text-accent-main">
+    <span className="relative inline-block font2 font-semibold text-accent-main">
       {children}
       <svg
         className="absolute -bottom-1 left-0 w-full h-2"
@@ -130,10 +130,10 @@ export default function EcosystemBenefits() {
                     </motion.div>
                     
                     <div>
-                      <h3 className="text-2xl font-bold text-foreground group-hover:text-accent-main transition-colors duration-300">
+                      <h3 className="text-4xl font-bold text-foreground group-hover:text-accent-main transition-colors duration-300">
                         <HighlightedText>{benefit.title}</HighlightedText>
                       </h3>
-                      <p className="text-sm font-semibold text-text-secondary uppercase tracking-wider">
+                      <p className="text-sm font-semibold text-text-secondary uppercase mt-1">
                         {benefit.subtitle}
                       </p>
                     </div>
