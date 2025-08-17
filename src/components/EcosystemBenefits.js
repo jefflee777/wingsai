@@ -1,6 +1,7 @@
 "use client"
 import { motion } from 'framer-motion';
 import { FaGlobeAmericas, FaHandshake, FaUsers, FaArrowRight, FaCheckCircle, FaCoins, FaStore, FaHeart } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
 
 // Custom SVG underline component for highlighted text
 const HighlightedText = ({ children }) => {
@@ -96,10 +97,10 @@ export default function EcosystemBenefits() {
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-            Ecosystem <HighlightedText>Benefits</HighlightedText>
+            Ecosystem <HighlightedText><span className='font2'>Benefits</span></HighlightedText>
           </h2>
           
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto text-balance leading-relaxed">
             Discover how Wings AI creates value and opportunities for every participant in our travel ecosystem
           </p>
         </motion.div>
@@ -191,31 +192,24 @@ export default function EcosystemBenefits() {
         >
           <div className="bg-border-soft/30 backdrop-blur-sm border border-border-soft rounded-3xl p-8 max-w-4xl mx-auto">
             <h3 className="text-3xl font-bold text-foreground mb-4">
-              Ready to Join the <HighlightedText>Wings AI</HighlightedText> Ecosystem?
+              Ready to Join the <HighlightedText><span className='font2 px-1'>Wings AI</span></HighlightedText> Ecosystem?
             </h3>
-            <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-text-secondary mb-8 text-balance max-w-2xl mx-auto">
               Whether you're a traveler seeking rewards, a business looking to grow, or someone passionate about revolutionary travel experiences, there's a place for you in our ecosystem.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a href='https://x.com/WingsAi_' target='_blank'>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-accent-main text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
               >
-                <FaGlobeAmericas className="w-5 h-5" />
-                Start Traveling & Earning
+                <FaXTwitter className="w-5 h-5" />
+                Join us on X
                 <FaArrowRight className="w-4 h-4" />
               </motion.button>
-              
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-transparent border-2 border-border-strong text-foreground font-semibold px-8 py-4 rounded-xl hover:border-accent-main hover:text-accent-main transition-all duration-300 flex items-center gap-2"
-              >
-                <FaHandshake className="w-5 h-5" />
-                Become a Partner
-              </motion.button>
+              </a>
             </div>
           </div>
         </motion.div>
