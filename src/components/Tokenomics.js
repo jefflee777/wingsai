@@ -199,10 +199,10 @@ export default function Tokenomics() {
               {/* Premium Center Content */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-center">
-                  <div className="text-lg font-bold text-foreground">
+                  <div className="text-2xl font-bold text-foreground">
                     {activeIndex !== null ? `${tokenData[activeIndex].value}%` : '$WINGS'}
                   </div>
-                  <div className="text-sm text-text-secondary">
+                  <div className="text-lg text-text-secondary">
                     {activeIndex !== null ? tokenData[activeIndex].name : 'Token'}
                   </div>
                 </div>
