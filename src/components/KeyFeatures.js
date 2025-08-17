@@ -119,7 +119,7 @@ export default function KeyFeatures() {
                     <feature.icon className={`text-${feature.color} w-8 h-8`} />
                   </motion.div>
                   
-                  <h3 className="text-2xl font-bold text-foreground group-hover:text-accent-main transition-colors duration-300 flex-1">
+                  <h3 className="text-3xl tracking-wide font2 font-bold text-foreground group-hover:text-accent-main transition-colors duration-300 flex-1">
                     <HighlightedText>{feature.title}</HighlightedText>
                   </h3>
                 </div>
@@ -156,7 +156,7 @@ export default function KeyFeatures() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-16 pt-12 border-t border-border-soft"
+          className="sm:block hidden text-center mt-16 pt-12 border-t border-border-soft"
         >
           <div className="inline-flex items-center gap-4 bg-border-soft/30 backdrop-blur-sm border border-border-soft rounded-2xl p-6">
             <div className="flex items-center gap-3">
