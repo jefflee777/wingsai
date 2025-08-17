@@ -46,7 +46,7 @@ export default function HeroSection() {
           </span>
           <br />
           <span className="text-accent-main font-black">Earn</span> as You{' '}
-          <span className="italic font-light">Go</span>
+          <span className="italic font-light font2">Go</span>
         </motion.h1>
         
         <motion.p
