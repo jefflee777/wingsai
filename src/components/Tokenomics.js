@@ -135,11 +135,10 @@ export default function Tokenomics() {
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-            <HighlightedText>Tokenomics</HighlightedText> <span className="text-text-secondary font-light">(simplified)</span>
+            <HighlightedText><span className='font2 tracking-wide text-5xl sm:text-6xl lg:text-7xl'>Tokenomics</span></HighlightedText> <span className="text-text-secondary font-light">(simplified)</span>
           </h2>
           
           <div className="flex items-center justify-center gap-3 text-2xl font-bold">
-            <span className="text-3xl">💠</span>
             <span className="text-foreground">Total Supply:</span>
             <span className="text-accent-main">2B $WINGS</span>
           </div>
@@ -156,11 +155,11 @@ export default function Tokenomics() {
             viewport={{ once: true }}
             className="flex-1"
           >
-            <div className="relative bg-white/5 backdrop-blur-sm border border-border-soft rounded-3xl p-8 shadow-2xl h-[500px] flex items-center justify-center">
+            <div className="relative bg-white/5 backdrop-blur-sm border border-border-soft rounded-3xl  shadow-2xl h-[500px] flex items-center justify-center">
               {/* Premium glow effect */}
               <div className="absolute inset-4 bg-gradient-to-r from-accent-main/10 to-accent-glow/10 rounded-2xl blur-2xl"></div>
               
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="100%" className="sm:scale-125 scale-95">
                 <PieChart>
                   <Pie
                     data={tokenData}
@@ -200,13 +199,6 @@ export default function Tokenomics() {
               {/* Premium Center Content */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-center">
-                  <motion.div 
-                    animate={{ rotate: [0, 5, -5, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-20 h-20 bg-gradient-to-br from-accent-main to-accent-glow rounded-full flex items-center justify-center mb-3 shadow-xl"
-                  >
-                    <FaCoins className="w-10 h-10 text-white" />
-                  </motion.div>
                   <div className="text-lg font-bold text-foreground">
                     {activeIndex !== null ? `${tokenData[activeIndex].value}%` : '$WINGS'}
                   </div>
@@ -251,9 +243,9 @@ export default function Tokenomics() {
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
-                      className="w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300"
+                      className="w-14 h-14 hidden rounded-xl flex items-center justify-center transition-all duration-300"
                       style={{ 
-                        backgroundColor: item.color + '20',
+                        // backgroundColor: item.color + '20',
                         boxShadow: activeIndex === index ? `0 4px 20px ${item.color}30` : 'none'
                       }}
                     >
@@ -270,7 +262,7 @@ export default function Tokenomics() {
                           {item.name}
                         </h4>
                         <span 
-                          className="text-xl font-bold px-3 py-1 rounded-full text-white text-sm"
+                          className="font-bold px-3 py-1 rounded-full text-white text-sm"
                           style={{ backgroundColor: item.color }}
                         >
                           {item.value}%
