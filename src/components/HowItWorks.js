@@ -92,15 +92,15 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="mb-12 w-full bg-amber-500"
+              className="mb-12 w-full"
             >
-              <div className="inline-flex items-center gap-2 bg-border-soft/30 backdrop-blur-sm border border-border-soft rounded-full px-4 py-2 mb-6 mx-auto">
+              <div className="flex max-w-[170px] items-center justify-center gap-2 bg-border-soft/30 backdrop-blur-sm border border-border-soft rounded-full px-4 py-2 mb-6 mx-auto">
                 <div className="w-2 h-2 bg-accent-main rounded-full animate-pulse"></div>
                 <span className="text-sm font-medium text-text-secondary">Simple Process</span>
               </div>
               
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight text-center">
-                How It <HighlightedText>Works</HighlightedText>
+                How It <HighlightedText><span className='font2'>Works</span></HighlightedText>
               </h2>
             </motion.div>
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -148,17 +148,12 @@ export default function HowItWorks() {
                       className={`relative flex-shrink-0 w-16 h-16 ${step.bgColor} ${step.borderColor} border-2 rounded-2xl flex items-center justify-center group-hover:shadow-lg transition-all duration-300`}
                     >
                       <step.icon className={`${step.color} w-8 h-8`} />
-                      
-                      {/* Step number badge */}
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-accent-main text-white text-xs font-bold rounded-full flex items-center justify-center shadow-md">
-                        {step.id}
-                      </div>
                     </motion.div>
 
                     {/* Content */}
                     <div className="flex-1 pt-2">
                       <motion.h3 
-                        className="text-2xl font-bold mb-3 group-hover:text-accent-main transition-colors duration-300"
+                        className="text-2xl font-bold mb-3"
                       >
                         Step {step.id} - <HighlightedText>{step.title}</HighlightedText>
                       </motion.h3>
