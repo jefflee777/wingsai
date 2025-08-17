@@ -33,7 +33,7 @@ export default function KeyFeatures() {
       title: 'AI Travel Planner',
       description: 'Harness the power of artificial intelligence to craft personalized travel routes that perfectly match your budget, available time, and personal interests.',
       highlights: ['Smart Route Optimization', 'Budget-Based Planning', 'Interest Matching'],
-      color: 'text-blue-600',
+      color: 'blue-600',
       bgColor: 'bg-blue-50'
     },
     {
@@ -41,7 +41,7 @@ export default function KeyFeatures() {
       title: 'Checkpoint Verification',
       description: 'Verify your visits using GPS technology or photo confirmation and earn instant rewards for each authentic check-in at your travel destinations.',
       highlights: ['GPS Verification', 'Photo Authentication', 'Instant Rewards'],
-      color: 'text-red-600',
+      color: 'red-600',
       bgColor: 'bg-red-50'
     },
     {
@@ -49,7 +49,7 @@ export default function KeyFeatures() {
       title: 'Content Rewards',
       description: 'Share your unique travel experiences through reviews, photos, and videos. The more engaging your content, the higher your token earnings.',
       highlights: ['Review Sharing', 'Photo Uploads', 'Video Content'],
-      color: 'text-green-600',
+      color: 'green-600',
       bgColor: 'bg-green-50'
     },
     {
@@ -57,7 +57,7 @@ export default function KeyFeatures() {
       title: 'On-Chain Passport',
       description: 'Build a permanent, blockchain-secured travel passport that records your journeys, achievements, and milestones, giving you true ownership of your travel history.',
       highlights: ['Blockchain Security', 'Digital Badges', 'Milestone Tracking'],
-      color: 'text-purple-600',
+      color: 'purple-600',
       bgColor: 'bg-purple-50'
     },
     {
@@ -65,7 +65,7 @@ export default function KeyFeatures() {
       title: 'Global Partnerships',
       description: 'Access exclusive benefits and discounts through our extensive network of partner hotels, airlines, tour operators, and local services worldwide.',
       highlights: ['Hotel Discounts', 'Airline Benefits', 'Tour Packages'],
-      color: 'text-orange-600',
+      color: 'orange-600',
       bgColor: 'bg-orange-50'
     }
   ];
@@ -114,9 +114,9 @@ export default function KeyFeatures() {
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.3 }}
-                    className={`w-16 h-16 ${feature.bgColor} rounded-2xl flex items-center justify-center mr-4 group-hover:shadow-lg transition-all duration-300`}
+                    className={`w-16 h-16 ${feature.bgColor} border-2 border-blue-400 rounded-2xl flex items-center justify-center mr-4 group-hover:shadow-lg transition-all duration-300`}
                   >
-                    <feature.icon className={`${feature.color} w-8 h-8`} />
+                    <feature.icon className={`text-${feature.color} w-8 h-8`} />
                   </motion.div>
                   
                   <h3 className="text-2xl font-bold text-foreground group-hover:text-accent-main transition-colors duration-300 flex-1">
