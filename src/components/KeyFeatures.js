@@ -88,10 +88,10 @@ export default function KeyFeatures() {
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-            Key <HighlightedText>Features</HighlightedText>
+            Key <HighlightedText><span className='font2'>Features</span></HighlightedText>
           </h2>
           
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-text-secondary max-w-3xl text-balance mx-auto leading-relaxed">
             Discover the comprehensive features that make Wings AI the most advanced travel-to-earn platform
           </p>
         </motion.div>
@@ -125,7 +125,7 @@ export default function KeyFeatures() {
                 </div>
 
                 {/* Description */}
-                <p className="text-text-secondary text-lg leading-relaxed mb-6 flex-grow">
+                <p className="text-text-secondary text-sm text-balance leading-relaxed mb-6 flex-grow">
                   {feature.description}
                 </p>
 
@@ -140,23 +140,10 @@ export default function KeyFeatures() {
                       viewport={{ once: true }}
                       className="flex items-center gap-3"
                     >
-                      <FaCheckCircle className="text-accent-main w-4 h-4 flex-shrink-0" />
+                      <FaCheckCircle className="text-green-500 w-4 h-4 flex-shrink-0" />
                       <span className="text-text-secondary text-sm font-medium">{highlight}</span>
                     </motion.div>
                   ))}
-                </div>
-
-                {/* Learn More Link */}
-                <div className="mt-auto pt-4 border-t border-border-soft">
-                  <button className="group/btn flex items-center gap-2 text-accent-main font-semibold hover:text-accent-glow transition-colors duration-300">
-                    <span>Learn More</span>
-                    <FaArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" />
-                  </button>
-                </div>
-
-                {/* Hover Indicator */}
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-3 h-3 bg-accent-main rounded-full animate-pulse"></div>
                 </div>
               </div>
             </motion.div>
