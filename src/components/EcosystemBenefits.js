@@ -1,3 +1,4 @@
+"use client"
 import { motion } from 'framer-motion';
 import { FaGlobeAmericas, FaHandshake, FaUsers, FaArrowRight, FaCheckCircle, FaCoins, FaStore, FaHeart } from 'react-icons/fa';
 
