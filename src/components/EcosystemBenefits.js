@@ -116,7 +116,7 @@ export default function EcosystemBenefits() {
               viewport={{ once: true }}
               className="group relative"
             >
-              <div className={`relative bg-white/5 backdrop-blur-sm border-2 ${benefit.borderColor} rounded-3xl p-8 h-full transition-all duration-300 hover:bg-white/8 hover:border-accent-main hover:shadow-2xl hover:transform hover:scale-105`}>
+              <div className={`relative bg-white/5 backdrop-blur-sm border border-border-soft rounded-3xl p-8 h-full transition-all duration-300 hover:bg-white/8 hover:border-accent-main hover:shadow-2xl hover:transform hover:scale-105`}>
                 
                 {/* Header Section */}
                 <div className="flex items-center justify-between mb-6">
@@ -124,7 +124,7 @@ export default function EcosystemBenefits() {
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ duration: 0.3 }}
-                      className={`w-16 h-16 ${benefit.bgColor} rounded-2xl flex items-center justify-center group-hover:shadow-lg transition-all duration-300`}
+                      className={`w-16 h-16 ${benefit.bgColor} border-blue-400 border-2 rounded-2xl flex items-center justify-center group-hover:shadow-lg transition-all duration-300`}
                     >
                       <benefit.icon className={`${benefit.color} w-8 h-8`} />
                     </motion.div>
@@ -141,12 +141,12 @@ export default function EcosystemBenefits() {
                   
                   {/* Accent Icon */}
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <benefit.accentIcon className="w-6 h-6 text-accent-main" />
+                    <benefit.accentIcon className="w-6 h-6 text-green-500" />
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-text-secondary text-lg leading-relaxed mb-6">
+                <p className="text-text-secondary text-sm text-balance mb-6">
                   {benefit.description}
                 </p>
 
@@ -161,20 +161,11 @@ export default function EcosystemBenefits() {
                       viewport={{ once: true }}
                       className="flex items-center gap-3"
                     >
-                      <FaCheckCircle className="text-accent-main w-4 h-4 flex-shrink-0" />
+                      <FaCheckCircle className="text-green-500 w-4 h-4 flex-shrink-0" />
                       <span className="text-text-secondary font-medium">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
-
-                {/* Call to Action */}
-                <div className="mt-auto pt-6 border-t border-border-soft">
-                  <button className="group/btn flex items-center gap-2 text-accent-main font-semibold hover:text-accent-glow transition-colors duration-300">
-                    <span>Join as {benefit.title}</span>
-                    <FaArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" />
-                  </button>
-                </div>
-
                 {/* Hover Glow Effect */}
                 <div className="absolute inset-0 rounded-3xl bg-accent-main/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               </div>
