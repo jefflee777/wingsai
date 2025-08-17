@@ -1,5 +1,6 @@
+"use client"
 import { motion } from 'framer-motion';
-import { FaCompass, FaMapPin, FaCameraRetro, FaPassport, FaHandshake, FaStar } from 'react-icons/fa';
+import { FaCompass, FaMapPin, FaCameraRetro, FaPassport, FaHandshake, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 
 // Custom SVG underline component for highlighted text
 const HighlightedText = ({ children }) => {
@@ -28,54 +29,44 @@ const HighlightedText = ({ children }) => {
 export default function KeyFeatures() {
   const features = [
     {
-      id: 1,
-      emoji: '🧭',
       icon: FaCompass,
       title: 'AI Travel Planner',
-      description: 'Smart routes built for you.',
+      description: 'Harness the power of artificial intelligence to craft personalized travel routes that perfectly match your budget, available time, and personal interests.',
+      highlights: ['Smart Route Optimization', 'Budget-Based Planning', 'Interest Matching'],
       color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200'
+      bgColor: 'bg-blue-50'
     },
     {
-      id: 2,
-      emoji: '📌',
       icon: FaMapPin,
       title: 'Checkpoint Verification',
-      description: 'Earn instantly when you check in.',
+      description: 'Verify your visits using GPS technology or photo confirmation and earn instant rewards for each authentic check-in at your travel destinations.',
+      highlights: ['GPS Verification', 'Photo Authentication', 'Instant Rewards'],
       color: 'text-red-600',
-      bgColor: 'bg-red-50',
-      borderColor: 'border-red-200'
+      bgColor: 'bg-red-50'
     },
     {
-      id: 3,
-      emoji: '📸',
       icon: FaCameraRetro,
       title: 'Content Rewards',
-      description: 'Share your travel story and earn more.',
+      description: 'Share your unique travel experiences through reviews, photos, and videos. The more engaging your content, the higher your token earnings.',
+      highlights: ['Review Sharing', 'Photo Uploads', 'Video Content'],
       color: 'text-green-600',
-      bgColor: 'bg-green-50',
-      borderColor: 'border-green-200'
+      bgColor: 'bg-green-50'
     },
     {
-      id: 4,
-      emoji: '🌍',
       icon: FaPassport,
       title: 'On-Chain Passport',
-      description: 'Collect badges, track milestones, and own your journey.',
+      description: 'Build a permanent, blockchain-secured travel passport that records your journeys, achievements, and milestones, giving you true ownership of your travel history.',
+      highlights: ['Blockchain Security', 'Digital Badges', 'Milestone Tracking'],
       color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
-      borderColor: 'border-purple-200'
+      bgColor: 'bg-purple-50'
     },
     {
-      id: 5,
-      emoji: '🤝',
       icon: FaHandshake,
       title: 'Global Partnerships',
-      description: 'Hotels, airlines, and tours accepting tokens.',
+      description: 'Access exclusive benefits and discounts through our extensive network of partner hotels, airlines, tour operators, and local services worldwide.',
+      highlights: ['Hotel Discounts', 'Airline Benefits', 'Tour Packages'],
       color: 'text-orange-600',
-      bgColor: 'bg-orange-50',
-      borderColor: 'border-orange-200'
+      bgColor: 'bg-orange-50'
     }
   ];
 
@@ -91,10 +82,9 @@ export default function KeyFeatures() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-border-soft/30 backdrop-blur-sm border border-border-soft rounded-full px-4 py-2 mb-6">
-            <FaStar className="text-accent-main text-sm" />
-            <span className="text-sm font-medium text-text-secondary">What Makes Us Special</span>
+            <div className="w-2 h-2 bg-accent-main rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-text-secondary">Platform Capabilities</span>
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight">
@@ -102,124 +92,107 @@ export default function KeyFeatures() {
           </h2>
           
           <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Discover the powerful features that make Wings AI the ultimate travel-to-earn platform
+            Discover the comprehensive features that make Wings AI the most advanced travel-to-earn platform
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
-              key={feature.id}
-              initial={{ opacity: 0, y: 50 }}
+              key={feature.title}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="group relative"
             >
-              <div className={`relative bg-white/5 backdrop-blur-sm border-2 ${feature.borderColor} rounded-3xl p-8 h-full transition-all duration-300 hover:bg-white/10 hover:border-accent-main hover:shadow-xl hover:transform hover:scale-105`}>
+              <div className="relative bg-white/5 backdrop-blur-sm border border-border-soft rounded-3xl p-8 h-full flex flex-col transition-all duration-300 hover:bg-white/8 hover:border-accent-main hover:shadow-2xl hover:transform hover:scale-105">
                 
-                {/* Feature Number */}
-                <div className="absolute -top-3 -right-3 w-8 h-8 bg-accent-main text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg">
-                  {feature.id}
-                </div>
-
-                {/* Icon Container */}
-                <div className="mb-6">
+                {/* Icon */}
+                <div className="flex items-center mb-6">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.3 }}
-                    className={`relative w-20 h-20 ${feature.bgColor} rounded-3xl flex items-center justify-center mb-4 group-hover:shadow-lg transition-all duration-300`}
+                    className={`w-16 h-16 ${feature.bgColor} rounded-2xl flex items-center justify-center mr-4 group-hover:shadow-lg transition-all duration-300`}
                   >
-                    {/* Emoji Background */}
-                    <div className="absolute inset-0 flex items-center justify-center text-3xl opacity-20">
-                      {feature.emoji}
-                    </div>
-                    
-                    {/* React Icon */}
-                    <feature.icon className={`${feature.color} w-8 h-8 relative z-10`} />
+                    <feature.icon className={`${feature.color} w-8 h-8`} />
                   </motion.div>
-                </div>
-
-                {/* Content */}
-                <div className="space-y-4">
-                  <h3 className="text-2xl font-bold group-hover:text-accent-main transition-colors duration-300">
+                  
+                  <h3 className="text-2xl font-bold text-foreground group-hover:text-accent-main transition-colors duration-300 flex-1">
                     <HighlightedText>{feature.title}</HighlightedText>
                   </h3>
-                  
-                  <p className="text-lg text-text-secondary leading-relaxed">
-                    {feature.description}
-                  </p>
                 </div>
 
-                {/* Hover Effect Arrow */}
-                <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-                  <div className="w-6 h-6 border-2 border-accent-main rounded-full flex items-center justify-center">
-                    <div className="w-2 h-2 bg-accent-main rounded-full"></div>
-                  </div>
+                {/* Description */}
+                <p className="text-text-secondary text-lg leading-relaxed mb-6 flex-grow">
+                  {feature.description}
+                </p>
+
+                {/* Highlights */}
+                <div className="space-y-3 mb-6">
+                  {feature.highlights.map((highlight, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 + idx * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex items-center gap-3"
+                    >
+                      <FaCheckCircle className="text-accent-main w-4 h-4 flex-shrink-0" />
+                      <span className="text-text-secondary text-sm font-medium">{highlight}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Learn More Link */}
+                <div className="mt-auto pt-4 border-t border-border-soft">
+                  <button className="group/btn flex items-center gap-2 text-accent-main font-semibold hover:text-accent-glow transition-colors duration-300">
+                    <span>Learn More</span>
+                    <FaArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" />
+                  </button>
+                </div>
+
+                {/* Hover Indicator */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-3 h-3 bg-accent-main rounded-full animate-pulse"></div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom Call-to-Action */}
+        {/* Bottom Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center mt-16 pt-12 border-t border-border-soft"
         >
-          <div className="inline-flex items-center gap-6 bg-border-soft/30 backdrop-blur-sm border border-border-soft rounded-2xl p-6">
+          <div className="inline-flex items-center gap-4 bg-border-soft/30 backdrop-blur-sm border border-border-soft rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 bg-accent-main text-white rounded-2xl flex items-center justify-center">
-                <FaStar className="w-6 h-6" />
+                <FaCheckCircle className="w-6 h-6" />
               </div>
               <div className="text-left">
-                <div className="text-lg font-semibold text-foreground">Experience All Features</div>
-                <div className="text-sm text-text-secondary">Join the revolution in travel rewards</div>
+                <div className="text-lg font-semibold text-foreground">Ready to Experience These Features?</div>
+                <div className="text-sm text-text-secondary">Start your journey with Wings AI today</div>
               </div>
             </div>
             
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-accent-main text-white font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-accent-main text-white font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
             >
-              Get Started Now
+              Get Started
+              <FaArrowRight className="w-4 h-4" />
             </motion.button>
           </div>
         </motion.div>
       </div>
-
-      {/* Subtle background decorations */}
-      <motion.div 
-        animate={{ 
-          rotate: [0, 360],
-          scale: [1, 1.2, 1]
-        }}
-        transition={{ 
-          duration: 20, 
-          repeat: Infinity, 
-          ease: "linear" 
-        }}
-        className="absolute top-20 right-10 w-6 h-6 border border-accent-main/30 rounded-full opacity-30"
-      ></motion.div>
-      
-      <motion.div 
-        animate={{ 
-          y: [0, -15, 0],
-          opacity: [0.2, 0.4, 0.2]
-        }}
-        transition={{ 
-          duration: 4, 
-          repeat: Infinity, 
-          ease: "easeInOut",
-          delay: 2
-        }}
-        className="absolute bottom-32 left-8 w-4 h-4 bg-accent-glow/30 rounded-full"
-      ></motion.div>
     </section>
   );
 }

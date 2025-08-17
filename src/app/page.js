@@ -1,5 +1,6 @@
 import HeroSection from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
+import KeyFeatures from "@/components/KeyFeatures";
 import Image from "next/image";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <div>
       <HeroSection/>
       <HowItWorks/>
+      <KeyFeatures/>
     </div>
   );
 }
