@@ -2,6 +2,7 @@ import EcosystemBenefits from "@/components/EcosystemBenefits";
 import HeroSection from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import KeyFeatures from "@/components/KeyFeatures";
+import Tokenomics from "@/components/Tokenomics";
 import Image from "next/image";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <HowItWorks/>
       <KeyFeatures/>
       <EcosystemBenefits/>
+      <Tokenomics/>
     </div>
   );
 }
