@@ -6,7 +6,7 @@ import { FaBrain, FaMapMarkerAlt, FaCamera, FaGift, FaCheckCircle } from 'react-
 // Custom SVG underline component for highlighted text
 const HighlightedText = ({ children }) => {
   return (
-    <span className="relative inline-block font-semibold text-accent-main">
+    <span className="relative font2 inline-block font-semibold text-accent-main">
       {children}
       <svg
         className="absolute -bottom-1 left-0 w-full h-2"
@@ -34,7 +34,7 @@ export default function HowItWorks() {
       title: 'Plan',
       description: (
         <>
-          AI suggests personalized routes based on your <HighlightedText>budget</HighlightedText>, <HighlightedText>time</HighlightedText>, and <HighlightedText>interests</HighlightedText>.
+          AI suggests personalized routes based on your <HighlightedText><span className='text-xl'></span>budget</HighlightedText>, <HighlightedText><span className='text-xl'></span>time</HighlightedText>, and <HighlightedText><span className='text-xl'></span>interests</HighlightedText>.
         </>
       ),
       icon: FaBrain,
@@ -47,7 +47,7 @@ export default function HowItWorks() {
       title: 'Explore',
       description: (
         <>
-          Visit locations, verify check-ins with <HighlightedText>GPS</HighlightedText> or <HighlightedText>photos</HighlightedText>, and unlock instant rewards.
+          Visit locations, verify check-ins with <HighlightedText><span className='text-xl'>GPS</span></HighlightedText> or <HighlightedText><span className='text-xl'>photos</span></HighlightedText>, and unlock instant rewards.
         </>
       ),
       icon: FaMapMarkerAlt,
@@ -60,7 +60,7 @@ export default function HowItWorks() {
       title: 'Earn & Share',
       description: (
         <>
-          Upload reviews, photos, or videos - the more popular your <HighlightedText>content</HighlightedText>, the more you earn.
+          Upload reviews, photos, or videos - the more popular your <HighlightedText><span className='text-xl'>content</span></HighlightedText>, the more you earn.
         </>
       ),
       icon: FaCamera,
@@ -73,7 +73,7 @@ export default function HowItWorks() {
       title: 'Redeem',
       description: (
         <>
-          Use Wings AI tokens for travel discounts, partner perks, and <HighlightedText>real-world rewards</HighlightedText>.
+          Use Wings AI tokens for travel discounts, partner perks, and <HighlightedText><span className='text-xl'>real-world rewards</span></HighlightedText>.
         </>
       ),
       icon: FaGift,
@@ -155,7 +155,7 @@ export default function HowItWorks() {
                       <motion.h3 
                         className="text-2xl font-bold mb-3"
                       >
-                        Step {step.id} - <HighlightedText>{step.title}</HighlightedText>
+                        Step {step.id} - <HighlightedText><span className='text-3xl'>{step.title}</span></HighlightedText>
                       </motion.h3>
                       
                       <p className="text-lg text-text-secondary leading-relaxed max-w-2xl">
