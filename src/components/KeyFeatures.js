@@ -41,7 +41,7 @@ export default function KeyFeatures() {
       title: 'Checkpoint Verification',
       description: 'Verify your visits using GPS technology or photo confirmation and earn instant rewards for each authentic check-in at your travel destinations.',
       highlights: ['GPS Verification', 'Photo Authentication', 'Instant Rewards'],
-      color: 'red-600',
+      color: 'orange-600',
       bgColor: 'bg-red-50'
     },
     {
