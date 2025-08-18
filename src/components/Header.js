@@ -161,18 +161,6 @@ const Navbar = () => {
 
               {/* Desktop: CTA + Social Icons */}
               <div className="hidden sm:flex items-center gap-4">
-                {/* Wings AI App CTA Button */}
-                <motion.a
-                  href="#cta"
-                  className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#FE6F61] to-[#00F6FF] rounded-lg text-white font-semibold text-sm shadow-lg"
-                  whileHover={{ scale: 1.05, y: -1 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <FaCoins className="w-4 h-4" />
-                  <span>Try Wings AI</span>
-                </motion.a>
-
                 {/* Social Links */}
                 <div className="flex items-center gap-2">
                   {socialLinks.map((item, i) => {
@@ -281,24 +269,6 @@ const Navbar = () => {
                   </motion.a>
                 ))}
               </div>
-
-              {/* Mobile CTA Button */}
-              <motion.a
-                href="#cta"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#FE6F61] to-[#00F6FF] rounded-xl text-white font-bold text-lg mb-12 shadow-xl"
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleLinkClick('#cta')
-                }}
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.4 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <FaCoins className="w-5 h-5" />
-                <span>Try Wings AI</span>
-              </motion.a>
 
               {/* Mobile Social Links */}
               <div className="flex items-center justify-center gap-6">
