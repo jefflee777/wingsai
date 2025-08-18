@@ -205,34 +205,6 @@ export default function EcosystemBenefits() {
           </div>
         </motion.div>
       </div>
-
-      {/* Subtle Background Decorations */}
-      <motion.div 
-        animate={{ 
-          rotate: [0, 360],
-          scale: [1, 1.2, 1]
-        }}
-        transition={{ 
-          duration: 15, 
-          repeat: Infinity, 
-          ease: "linear" 
-        }}
-        className="absolute top-20 right-10 w-8 h-8 border-2 border-accent-main/20 rounded-full opacity-40"
-      ></motion.div>
-      
-      <motion.div 
-        animate={{ 
-          y: [0, -15, 0],
-          opacity: [0.2, 0.5, 0.2]
-        }}
-        transition={{ 
-          duration: 5, 
-          repeat: Infinity, 
-          ease: "easeInOut",
-          delay: 2
-        }}
-        className="absolute bottom-32 left-8 w-6 h-6 bg-accent-glow/30 rounded-2xl"
-      ></motion.div>
     </section>
   );
 }

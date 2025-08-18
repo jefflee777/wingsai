@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FaRocket, FaMobileAlt, FaArrowRight } from 'react-icons/fa';
+import { FaMobileAlt, FaArrowRight } from 'react-icons/fa';
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { MdGeneratingTokens, MdOutlineVerified } from "react-icons/md";
 
@@ -11,26 +11,6 @@ export default function HeroSection() {
     <section className="w-full min-h-screen flex flex-col lg:flex-row items-center px-4 sm:px-6 md:px-12 lg:px-20 py-12 bg-background text-foreground relative overflow-hidden">
       {/* Content Section - Left Side */}
       <div className="flex-1 flex flex-col justify-center max-w-2xl relative z-10">
-        {/* Badge */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: -20 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 bg-border-soft backdrop-blur-sm border border-border-soft rounded-full px-4 py-2 mb-6 w-fit"
-        >
-          <div className="w-2 h-2 bg-accent-glow rounded-full animate-pulse"></div>
-          <span className="text-sm font-medium text-text-secondary">World's First Travel-to-Earn Platform</span>
-        </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, x: -30 }} 
-          animate={{ opacity: 1, x: 0 }} 
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-4"
-        >
-          <span className="text-5xl md:text-6xl" role="img" aria-label="airplane">✈️</span>
-        </motion.div> */}
-        
         <motion.h1 
           initial={{ opacity: 0, x: -30 }} 
           animate={{ opacity: 1, x: 0 }} 
@@ -95,7 +75,7 @@ export default function HeroSection() {
           className="sm:flex hidden flex-wrap gap-8 mt-12 pt-8 border-t border-border-soft"
         >
           <div className="flex flex-col">
-            <span className="text-2xl font-bold text-accent-glow">10K+</span>
+            <span className="text-2xl font-bold text-accent-glow">110K+</span>
             <span className="text-sm text-text-secondary">Early Users</span>
           </div>
           <div className="flex flex-col">
