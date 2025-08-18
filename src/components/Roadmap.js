@@ -168,7 +168,7 @@ export default function Roadmap() {
                       
                       <div>
                         <div className="flex items-center gap-3 mb-1">
-                          <h3 className="text-2xl font-bold text-foreground">
+                          <h3 className="text-3xl tracking-wide font-bold text-foreground">
                             <HighlightedText>{phase.phase}</HighlightedText>
                           </h3>
                           <span className="text-sm font-semibold text-text-secondary bg-border-soft px-3 py-1 rounded-full">
@@ -247,7 +247,7 @@ export default function Roadmap() {
                   >
                     <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-accent-main/20 to-accent-glow/20 flex items-center justify-center">
                       <Image 
-                        src={`/images/roadmap-${phase.phase.toLowerCase().replace(' ', '')}.png`}
+                        src={`/${phase.phase.toLowerCase().replace(' ', '')}.png`}
                         alt={`${phase.title} illustration`}
                         width={300}
                         height={300}
