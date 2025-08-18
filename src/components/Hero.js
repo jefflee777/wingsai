@@ -10,7 +10,7 @@ export default function HeroSection() {
   return (
     <section className="w-full min-h-screen flex flex-col lg:flex-row items-center px-4 sm:px-6 md:px-12 lg:px-20 py-12 bg-background text-foreground relative overflow-hidden">
       {/* Content Section - Left Side */}
-      <div className="flex-1 flex flex-col justify-center max-w-2xl relative z-10">
+      <div className="flex-1 flex flex-col justify-center max-w-2xl relative z-10 sm:mt-0 mt-20">
         <motion.h1 
           initial={{ opacity: 0, x: -30 }} 
           animate={{ opacity: 1, x: 0 }} 
@@ -94,14 +94,14 @@ export default function HeroSection() {
         initial={{ opacity: 0, scale: 0.8 }} 
         animate={{ opacity: 1, scale: 1 }} 
         transition={{ duration: 1, delay: 0.4 }}
-        className="flex-1 mt-16 lg:mt-0 flex justify-center items-center relative z-10"
+        className="flex-1 mt-16 lg:mt-0 flex justify-center items-center relative z-10 sm:scale-100 scale-[87%]"
       >
         <div className="relative">
           {/* Floating cards around the main image */}
           <motion.div 
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-8 -left-8 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-2.5 border border-border-soft"
+            className="absolute -top-8 sm:-left-8 left-1/4 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-2.5 border border-border-soft"
           >
             <div className="text-sm font-semibold text-text-secondary flex items-center gap-2"><div className='bg-[#FF5300] inline-block p-1 rounded-lg'><GiArtificialIntelligence size={30} color='white'/></div> AI Recommendations</div>
           </motion.div>
@@ -109,7 +109,7 @@ export default function HeroSection() {
           <motion.div 
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-6 -left-6 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-2.5 border border-border-soft"
+            className="absolute sm:bottom-6 bottom-20 sm:-left-6 -left-10 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-2.5 border border-border-soft"
           >
             <div className="text-sm font-semibold text-text-secondary flex items-center gap-2"><div className='bg-green-600 inline-block p-1 rounded-lg'><MdGeneratingTokens size={30} color='white'/></div> Earn Tokens</div>
           </motion.div>
@@ -117,7 +117,7 @@ export default function HeroSection() {
           <motion.div 
             animate={{ x: [0, 5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute top-1/2 -right-28 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-2.5 border border-border-soft"
+            className="absolute sm:top-1/2 top-10/12 sm:-right-28 right-0 z-10 bg-border-soft backdrop-blur-sm rounded-2xl p-2.5 border border-border-soft"
           >
             <div className="text-sm font-semibold text-text-secondary flex items-center gap-2"><div className='bg-blue-700 inline-block p-1 rounded-lg'><MdOutlineVerified size={30} color='white'/></div> Blockchain Verified</div>
           </motion.div>
