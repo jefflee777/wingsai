@@ -1,5 +1,6 @@
 import CTASection from "@/components/cta";
 import EcosystemBenefits from "@/components/EcosystemBenefits";
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import KeyFeatures from "@/components/KeyFeatures";
@@ -16,6 +17,7 @@ export default function Home() {
       <Tokenomics/>
       <Roadmap/>
       <CTASection/>
+      <Footer/>
     </div>
   );
 }
