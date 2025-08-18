@@ -254,13 +254,13 @@ export default function Roadmap() {
 
                       />
                     {/* Floating elements for visual interest */}
-                    <motion.div 
+                    {/* <motion.div 
                       animate={{ y: [0, -8, 0] }}
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: index * 0.5 }}
                       className="absolute -top-2 -right-2 w-6 h-6 bg-accent-main rounded-full flex items-center justify-center shadow-lg"
                     >
                       <span className="text-white text-xs font-bold">{index + 1}</span>
-                    </motion.div>
+                    </motion.div> */}
                   </motion.div>
                 </div>
               </motion.div>
