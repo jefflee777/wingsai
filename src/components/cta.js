@@ -66,55 +66,7 @@ export default function CTASection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="relative bg-white/5 backdrop-blur-sm border border-border-soft rounded-3xl overflow-hidden shadow-2xl"
-        >
-          {/* Floating decorative elements */}
-          <motion.div 
-            animate={{ 
-              y: [0, -15, 0],
-              rotate: [0, 10, -10, 0]
-            }}
-            transition={{ 
-              duration: 4, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
-            className="absolute top-8 left-8 w-12 h-12 bg-accent-main rounded-2xl flex items-center justify-center shadow-xl opacity-80"
-          >
-            <FaPlane className="w-6 h-6 text-white" />
-          </motion.div>
-          
-          <motion.div 
-            animate={{ 
-              y: [0, 12, 0],
-              rotate: [0, -8, 8, 0]
-            }}
-            transition={{ 
-              duration: 5, 
-              repeat: Infinity, 
-              ease: "easeInOut",
-              delay: 1
-            }}
-            className="absolute top-8 right-8 w-10 h-10 bg-accent-glow rounded-xl flex items-center justify-center shadow-xl opacity-80"
-          >
-            <FaCoins className="w-5 h-5 text-white" />
-          </motion.div>
-          
-          <motion.div 
-            animate={{ 
-              y: [0, -8, 0],
-              x: [0, 5, 0]
-            }}
-            transition={{ 
-              duration: 3.5, 
-              repeat: Infinity, 
-              ease: "easeInOut",
-              delay: 0.5
-            }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-accent-main to-accent-glow rounded-full flex items-center justify-center shadow-lg opacity-70"
-          >
-            <FaStar className="w-4 h-4 text-white" />
-          </motion.div>
-
+        > 
           {/* Content */}
           <div className="px-8 sm:px-12 lg:px-16 py-16 text-center">
             
