@@ -128,7 +128,7 @@ export default function Roadmap() {
         {/* Timeline Container */}
         <div className="relative">
           {/* Vertical Timeline Line - Desktop */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-accent-main to-accent-glow transform -translate-x-1/2 rounded-full"></div>
+          <div className="hidden h-[50%] my-auto lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-accent-main transform -translate-x-1/2 rounded-full"></div>
 
           {/* Roadmap Cards */}
           <div className="space-y-16">
@@ -162,7 +162,7 @@ export default function Roadmap() {
 
                     {/* Header */}
                     <div className="flex items-center gap-4 mb-6">
-                      <div className={`w-16 h-16 ${phase.bgColor} rounded-2xl flex items-center justify-center shadow-lg`}>
+                      <div className={`w-16 h-16 ${phase.bgColor} rounded-2xl bg-white/80 border-2 border-blue-400 flex items-center justify-center shadow-lg`}>
                         <span className="text-2xl">{phase.emoji}</span>
                       </div>
                       
@@ -175,14 +175,14 @@ export default function Roadmap() {
                             {phase.timeline}
                           </span>
                         </div>
-                        <h4 className="text-xl font-semibold text-accent-main">
+                        <h4 className="text-xl font-semibold text-white">
                           {phase.title}
                         </h4>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-text-secondary text-lg leading-relaxed mb-6">
+                    <p className="text-text-secondary text-balance text-lg leading-relaxed mb-6">
                       {phase.description}
                     </p>
 
@@ -197,7 +197,7 @@ export default function Roadmap() {
                           viewport={{ once: true }}
                           className="flex items-center gap-2"
                         >
-                          <FaCheckCircle className="text-accent-main w-4 h-4 flex-shrink-0" />
+                          <FaCheckCircle className="text-green-500 w-4 h-4 flex-shrink-0" />
                           <span className="text-text-secondary font-medium text-sm">
                             {milestone}
                           </span>
@@ -232,7 +232,7 @@ export default function Roadmap() {
                   <motion.div
                     whileHover={{ scale: 1.2, rotate: 5 }}
                     transition={{ duration: 0.3 }}
-                    className="w-20 h-20 bg-gradient-to-br from-accent-main to-accent-glow rounded-full flex items-center justify-center shadow-2xl border-4 border-background"
+                    className="w-20 h-20 bg-accent-main to-accent-glow rounded-full flex items-center justify-center shadow-2xl border-4 border-background"
                   >
                     <phase.icon className="w-8 h-8 text-white" />
                   </motion.div>
