@@ -1,3 +1,4 @@
+import CTASection from "@/components/cta";
 import EcosystemBenefits from "@/components/EcosystemBenefits";
 import HeroSection from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
@@ -15,6 +16,7 @@ export default function Home() {
       <EcosystemBenefits/>
       <Tokenomics/>
       <Roadmap/>
+      <CTASection/>
     </div>
   );
 }
