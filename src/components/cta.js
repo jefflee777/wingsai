@@ -29,34 +29,6 @@ const HighlightedText = ({ children }) => {
 export default function CTASection() {
   return (
     <section className="w-full py-20 px-4 sm:px-6 md:px-12 lg:px-20 bg-background text-foreground relative overflow-hidden">
-      {/* Premium background elements */}
-      <motion.div 
-        animate={{ 
-          rotate: [0, 360],
-          scale: [1, 1.2, 1]
-        }}
-        transition={{ 
-          duration: 25, 
-          repeat: Infinity, 
-          ease: "linear" 
-        }}
-        className="absolute top-10 right-16 w-32 h-32 bg-gradient-to-r from-accent-main/20 to-accent-glow/20 rounded-full blur-3xl"
-      ></motion.div>
-      
-      <motion.div 
-        animate={{ 
-          rotate: [360, 0],
-          scale: [1, 1.3, 1]
-        }}
-        transition={{ 
-          duration: 30, 
-          repeat: Infinity, 
-          ease: "linear",
-          delay: 2
-        }}
-        className="absolute bottom-16 left-10 w-40 h-40 bg-gradient-to-r from-accent-glow/20 to-accent-main/20 rounded-full blur-3xl"
-      ></motion.div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Main CTA Container */}
@@ -105,42 +77,23 @@ export default function CTASection() {
             >
               Transform your travel experiences into meaningful rewards. Explore the world, share your adventures, and earn tokens with every journey you take.
             </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              viewport={{ once: true }}
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-md mx-auto"
-            >
-              {/* Primary CTA */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative bg-accent-main text-white font-bold px-8 py-4 rounded-xl text-lg shadow-xl overflow-hidden transition-all duration-300 w-full sm:w-auto premium-button-primary"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-accent-glow to-accent-main opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10 flex items-center justify-center gap-3">
-                  <FaRocket className="w-5 h-5 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300" />
-                  Try Wings AI
-                  <FaArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                </div>
-              </motion.button>
-
-              {/* Secondary CTA */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative bg-transparent border-2 border-border-strong text-foreground font-semibold px-8 py-4 rounded-xl text-lg overflow-hidden transition-all duration-300 w-full sm:w-auto premium-button-secondary"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-accent-main to-accent-glow opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10 flex items-center justify-center gap-3 group-hover:text-white transition-colors duration-300">
-                  <FaMobileAlt className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                  Open Mini App
-                </div>
-              </motion.button>
-            </motion.div>
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 36 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-5 w-full justify-center"
+        >
+          <button className="group bg-accent-main text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg flex items-center gap-3 justify-center w-full sm:w-auto transition-all duration-300 hover:bg-accent-glow focus:outline-none">
+            Try Wings AI
+            <FaArrowRight className="ml-2 text-base group-hover:translate-x-1 transition-transform duration-300" />
+          </button>
+          <button className="group bg-white/10 border border-border-soft text-foreground px-8 py-4 rounded-xl text-lg font-semibold flex items-center gap-3 w-full sm:w-auto backdrop-blur-sm shadow-lg transition-all duration-300 hover:border-accent-main hover:text-accent-main focus:outline-none">
+            <FaMobileAlt className="text-2xl" />
+            Open Mini App
+          </button>
+        </motion.div>
 
             {/* Trust indicators */}
             <motion.div
@@ -152,7 +105,7 @@ export default function CTASection() {
             >
               <div className="flex items-center gap-2 text-text-secondary">
                 <FaStar className="text-accent-main" />
-                <span className="text-sm font-medium">Trusted by 10K+ Travelers</span>
+                <span className="text-sm font-medium">Trusted by 110K+ Travelers</span>
               </div>
               <div className="flex items-center gap-2 text-text-secondary">
                 <FaCoins className="text-accent-glow" />
@@ -169,81 +122,6 @@ export default function CTASection() {
           <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none"></div>
         </motion.div>
       </div>
-
-      {/* Additional floating elements */}
-      <motion.div 
-        animate={{ 
-          y: [0, -20, 0],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{ 
-          duration: 6, 
-          repeat: Infinity, 
-          ease: "easeInOut",
-          delay: 3
-        }}
-        className="absolute bottom-20 right-8 w-4 h-4 bg-accent-glow/40 rounded-full"
-      ></motion.div>
-
-      {/* Custom 3D Button Styles */}
-      <style jsx>{`
-        .premium-button-primary {
-          box-shadow: 
-            0 0 0 1px rgba(255, 255, 255, 0.1),
-            0 10px 20px rgba(255, 111, 97, 0.3),
-            0 6px 0 rgba(220, 95, 82, 0.8),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-          transform: perspective(100px) rotateX(5deg);
-          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .premium-button-primary:hover {
-          transform: perspective(100px) rotateX(5deg) translateY(-2px);
-          box-shadow: 
-            0 0 0 1px rgba(255, 255, 255, 0.2),
-            0 15px 30px rgba(255, 111, 97, 0.4),
-            0 8px 0 rgba(220, 95, 82, 0.8),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        }
-        
-        .premium-button-primary:active {
-          transform: perspective(100px) rotateX(5deg) translateY(2px);
-          box-shadow: 
-            0 0 0 1px rgba(255, 255, 255, 0.1),
-            0 5px 10px rgba(255, 111, 97, 0.2),
-            0 2px 0 rgba(220, 95, 82, 0.8),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-        
-        .premium-button-secondary {
-          box-shadow: 
-            0 0 0 2px rgba(255, 255, 255, 0.3),
-            0 10px 20px rgba(0, 0, 0, 0.1),
-            0 6px 0 rgba(255, 255, 255, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          transform: perspective(100px) rotateX(5deg);
-          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-          backdrop-filter: blur(10px);
-        }
-        
-        .premium-button-secondary:hover {
-          transform: perspective(100px) rotateX(5deg) translateY(-2px);
-          box-shadow: 
-            0 0 0 2px rgba(255, 111, 97, 0.5),
-            0 15px 30px rgba(0, 0, 0, 0.15),
-            0 8px 0 rgba(255, 255, 255, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-        
-        .premium-button-secondary:active {
-          transform: perspective(100px) rotateX(5deg) translateY(2px);
-          box-shadow: 
-            0 0 0 2px rgba(255, 255, 255, 0.3),
-            0 5px 10px rgba(0, 0, 0, 0.1),
-            0 2px 0 rgba(255, 255, 255, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-      `}</style>
     </section>
   );
 }
