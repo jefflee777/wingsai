@@ -146,7 +146,7 @@ export default function Roadmap() {
                 
                 {/* Content Card */}
                 <div className="flex-1 max-w-2xl">
-                  <div className={`relative bg-white/5 backdrop-blur-sm border-2 ${phase.borderColor} rounded-3xl p-8 transition-all duration-300 hover:bg-white/8 hover:border-accent-main hover:shadow-2xl hover:transform hover:scale-105`}>
+                  <div className={`relative bg-white/5 backdrop-blur-sm border border-border-soft rounded-3xl p-8 transition-all duration-300  hover:bg-white/8 hover:border-accent-main hover:shadow-2xl hover:transform hover:scale-105`}>
                     
                     {/* Status Badge */}
                     <div className={`absolute -top-3 right-6 px-4 py-1 rounded-full text-xs font-bold text-white ${
