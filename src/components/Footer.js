@@ -60,7 +60,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative w-full py-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-background text-foreground border-t border-border-soft overflow-hidden">
+    <footer className="relative w-full pt-16 pb-8 px-4 sm:px-6 md:px-12 lg:px-20 bg-background text-foreground border-t border-border-soft overflow-hidden">
       {/* Background decorations */}
       <motion.div 
         animate={{ 
@@ -110,8 +110,8 @@ export default function Footer() {
                 Wings <HighlightedText>AI</HighlightedText>
               </h2>
             </div>
-            <p className="text-lg text-text-secondary max-w-md leading-relaxed">
-              Revolutionizing travel experiences through AI-powered rewards and blockchain technology. 
+            <p className="text-lg text-text-secondary max-w-md text-balance font-medium">
+            Travel Smarter Earn as You Go
               <span className="block mt-2 font-semibold text-accent-main">Your journey, your rewards.</span>
             </p>
           </motion.div>
@@ -146,7 +146,6 @@ export default function Footer() {
             viewport={{ once: true }}
             className="flex items-center gap-6"
           >
-            <span className="text-text-secondary font-medium mr-2">Follow us:</span>
             {socialLinks.map((social, index) => (
               <motion.a
                 key={social.label}
@@ -178,8 +177,6 @@ export default function Footer() {
         >
           <div className="text-text-secondary text-sm">
             <span>&copy; {new Date().getFullYear()} Wings AI. All rights reserved.</span>
-            <span className="mx-2">•</span>
-            <span>Built with ❤️ for travelers worldwide</span>
           </div>
 
           {/* Back to Top Button */}
@@ -193,22 +190,6 @@ export default function Footer() {
             <FaArrowUp className="w-4 h-4" />
             <span className="text-sm font-medium">Back to Top</span>
           </motion.button>
-        </motion.div>
-
-        {/* Token Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          viewport={{ once: true }}
-          className="mt-8 pt-6 border-t border-border-soft text-center"
-        >
-          <div className="inline-flex items-center gap-2 bg-accent-main/10 border border-accent-main/20 rounded-full px-6 py-3">
-            <FaCoins className="text-accent-main w-5 h-5" />
-            <span className="text-accent-main font-semibold">$WINGS Token</span>
-            <span className="text-text-secondary mx-2">•</span>
-            <span className="text-sm text-text-secondary">Powering the future of travel rewards</span>
-          </div>
         </motion.div>
       </div>
     </footer>
