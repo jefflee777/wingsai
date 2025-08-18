@@ -245,18 +245,14 @@ export default function Roadmap() {
                     transition={{ duration: 0.3 }}
                     className="relative bg-white/5 backdrop-blur-sm border border-border-soft rounded-3xl p-6 shadow-xl"
                   >
-                    <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-accent-main/20 to-accent-glow/20 flex items-center justify-center">
                       <Image 
                         src={`/${phase.phase.toLowerCase().replace(' ', '')}.png`}
                         alt={`${phase.title} illustration`}
-                        width={300}
-                        height={300}
+                        width={500}
+                        height={500}
                         className="rounded-2xl object-cover w-full h-full"
-                        placeholder="blur"
-                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+
                       />
-                    </div>
-                    
                     {/* Floating elements for visual interest */}
                     <motion.div 
                       animate={{ y: [0, -8, 0] }}
