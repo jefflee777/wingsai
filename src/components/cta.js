@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { FaRocket, FaMobileAlt, FaArrowRight, FaPlane, FaCoins, FaStar } from 'react-icons/fa';
 
 // Custom SVG underline component for highlighted text
@@ -85,14 +86,18 @@ export default function CTASection() {
           transition={{ duration: 0.7, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-5 w-full justify-center"
         >
-          <button className="group bg-accent-main text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg flex items-center gap-3 justify-center w-full sm:w-auto transition-all duration-300 hover:bg-accent-glow focus:outline-none">
+          <Link href='/ai'>
+          <button className="group bg-accent-main text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg flex items-center gap-3 justify-center w-full sm:w-auto transition-all duration-300 hover:bg-accent-main/90 focus:outline-none">
             Try Wings AI
             <FaArrowRight className="ml-2 text-base group-hover:translate-x-1 transition-transform duration-300" />
           </button>
+          </Link>
+          <a href='/' target='_blank'>
           <button className="group bg-white/10 border border-border-soft text-foreground px-8 py-4 rounded-xl text-lg font-semibold flex items-center gap-3 w-full sm:w-auto backdrop-blur-sm shadow-lg transition-all duration-300 hover:border-accent-main hover:text-accent-main focus:outline-none">
             <FaMobileAlt className="text-2xl" />
             Open Mini App
           </button>
+          </a>
         </motion.div>
 
             {/* Trust indicators */}
