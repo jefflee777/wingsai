@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { FaTelegramPlane, FaCoins, FaArrowUp } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 import { RiBnbLine } from "react-icons/ri";
@@ -104,13 +105,8 @@ export default function Footer() {
             viewport={{ once: true }}
             className="text-center lg:text-left"
           >
-            <div className="flex items-center gap-3 justify-center lg:justify-start mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-accent-main to-accent-glow rounded-2xl flex items-center justify-center shadow-xl">
-                <FaCoins className="w-6 h-6 text-white" />
-              </div>
-              <h2 className="text-3xl font-black">
-                Wings <HighlightedText>AI</HighlightedText>
-              </h2>
+            <div className="flex items-center gap-3 justify-center lg:justify-start">
+                <Image src='/logo.svg' alt='logo' width={100} height={100} className='scale-125 -mb-4'/>
             </div>
             <p className="text-lg text-text-secondary max-w-md text-balance font-medium">
             Travel Smarter Earn as You Go
