@@ -34,13 +34,13 @@ export default function Footer() {
     { 
       icon: FaXTwitter, 
       label: "Twitter", 
-      href: "https://twitter.com/wingsai",
+      href: "https://x.com/WingsAi_",
       color: "hover:text-blue-400"
     },
     { 
       icon: FaTelegramPlane, 
       label: "Telegram", 
-      href: "https://t.me/wingsai",
+      href: "https://t.me/Wings_AI",
       color: "hover:text-blue-500"
     },
     { 
@@ -52,7 +52,7 @@ export default function Footer() {
   ];
 
   const navLinks = [
-    { label: "About", href: "#about" },
+    { label: "Home", href: "/" },
     { label: "Features", href: "#features" },
     { label: "Roadmap", href: "#roadmap" },
     { label: "Tokenomics", href: "#tokenomics" },

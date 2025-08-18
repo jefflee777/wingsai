@@ -71,7 +71,7 @@ export default function KeyFeatures() {
   ];
 
   return (
-    <section className="w-full py-20 px-4 sm:px-6 md:px-12 lg:px-20 bg-background text-foreground">
+    <section id='features' className="w-full py-20 px-4 sm:px-6 md:px-12 lg:px-20 bg-background text-foreground">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}

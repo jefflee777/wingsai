@@ -104,7 +104,7 @@ export default function Tokenomics() {
   };
 
   return (
-    <section className="w-full py-20 px-4 sm:px-6 md:px-12 lg:px-20 bg-background text-foreground relative overflow-hidden">
+    <section id='tokenomics' className="w-full py-20 px-4 sm:px-6 md:px-12 lg:px-20 bg-background text-foreground relative overflow-hidden">
       {/* Background decorations */}
       <motion.div 
         animate={{ 
