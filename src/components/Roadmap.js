@@ -128,7 +128,7 @@ export default function Roadmap() {
         {/* Timeline Container */}
         <div className="relative">
           {/* Vertical Timeline Line - Desktop */}
-          <div className="hidden h-[50%] my-auto lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-accent-main transform -translate-x-1/2 rounded-full"></div>
+          {/* <div className="hidden h-[50%] my-auto lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-accent-main transform -translate-x-1/2 rounded-full"></div> */}
 
           {/* Roadmap Cards */}
           <div className="space-y-16">
