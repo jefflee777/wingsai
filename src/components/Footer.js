@@ -1,6 +1,8 @@
 "use client"
 import { motion } from 'framer-motion';
-import { FaTwitter, FaTelegramPlane, FaEthereum, FaCoins, FaArrowUp } from 'react-icons/fa';
+import { FaTelegramPlane, FaCoins, FaArrowUp } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
+import { RiBnbLine } from "react-icons/ri";
 
 // Custom SVG underline component for highlighted text
 const HighlightedText = ({ children }) => {
@@ -29,7 +31,7 @@ const HighlightedText = ({ children }) => {
 export default function Footer() {
   const socialLinks = [
     { 
-      icon: FaTwitter, 
+      icon: FaXTwitter, 
       label: "Twitter", 
       href: "https://twitter.com/wingsai",
       color: "hover:text-blue-400"
@@ -41,7 +43,7 @@ export default function Footer() {
       color: "hover:text-blue-500"
     },
     { 
-      icon: FaEthereum, 
+      icon: RiBnbLine, 
       label: "BSC Scan", 
       href: "https://bscscan.com/token/wingsai",
       color: "hover:text-yellow-500"
