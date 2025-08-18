@@ -6,7 +6,7 @@ import { FaRocket, FaGlobeAmericas, FaPlaneDeparture, FaCheckCircle, FaClock, Fa
 // Custom SVG underline component for highlighted text
 const HighlightedText = ({ children }) => {
   return (
-    <span className="relative inline-block font-semibold text-accent-main">
+    <span className="relative font2 inline-block font-semibold text-accent-main">
       {children}
       <svg
         className="absolute -bottom-1 left-0 w-full h-2"
@@ -117,10 +117,10 @@ export default function Roadmap() {
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-            Roadmap <HighlightedText>Highlights</HighlightedText>
+            Roadmap <HighlightedText><span className='tracking-wide'>Highlights</span></HighlightedText>
           </h2>
           
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto text-balance leading-relaxed">
             Our strategic timeline to revolutionize travel experiences and build the world's largest travel-to-earn ecosystem
           </p>
         </motion.div>
