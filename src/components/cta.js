@@ -87,7 +87,7 @@ export default function CTASection() {
           className="flex flex-col sm:flex-row gap-5 w-full justify-center"
         >
           <Link href='/ai'>
-          <button className="group bg-accent-main text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg flex items-center gap-3 justify-center w-full sm:w-auto transition-all duration-300 hover:bg-accent-main/90 focus:outline-none">
+          <button className="group bg-accent-main text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg flex items-center gap-3 justify-center w-full sm:w-auto transition-all duration-300 hover:bg-accent-main/90cc focus:outline-none">
             Try Wings AI
             <FaArrowRight className="ml-2 text-base group-hover:translate-x-1 transition-transform duration-300" />
           </button>

@@ -286,7 +286,7 @@ export default function Roadmap() {
             
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-accent-main mb-2">10K+</div>
+                <div className="text-2xl font-bold text-accent-main mb-2">110K+</div>
                 <div className="text-sm text-text-secondary">Beta Testers</div>
               </div>
               <div className="text-center">
@@ -301,21 +301,6 @@ export default function Roadmap() {
           </div>
         </motion.div>
       </div>
-
-      {/* Additional floating background elements */}
-      <motion.div 
-        animate={{ 
-          x: [0, 30, 0],
-          opacity: [0.2, 0.5, 0.2]
-        }}
-        transition={{ 
-          duration: 6, 
-          repeat: Infinity, 
-          ease: "easeInOut",
-          delay: 2
-        }}
-        className="absolute bottom-20 left-8 w-4 h-4 bg-accent-glow/30 rounded-full"
-      ></motion.div>
     </section>
   );
 }
