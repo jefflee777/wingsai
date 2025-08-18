@@ -10,14 +10,14 @@ import Image from 'next/image'
 
 const socialLinks = [
   {
-    href: "https://twitter.com/wingsai",
+    href: "https://x.com/WingsAi_",
     icon: BsTwitterX,
     label: "X",
     color: "#FFFFFF",
     hover: "#FE6F61"
   },
   {
-    href: "https://t.me/wingsai",
+    href: "https://t.me/Wings_AI",
     icon: FaTelegram,
     label: "Telegram",
     color: "#0088cc",
