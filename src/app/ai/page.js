@@ -1860,20 +1860,13 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
               />
               
               <div className="relative z-10">
-                <motion.div
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <FaRocket className="w-12 h-12 text-white mx-auto mb-4" />
-                </motion.div>
-                
-                <h3 className="text-xl font-black text-white mb-2">Ready for Real Adventures?</h3>
-                <p className="text-white/90 text-sm mb-6 leading-relaxed">
+                <h3 className="text-xl font-bold text-white mb-2">Ready for Real Adventures?</h3>
+                <p className="text-white/90 text-sm mb-6 leading-relaxed text-balance">
                   Download Wings AI and start earning tokens on your actual travels! Join thousands of explorers worldwide! 🌍
                 </p>
                 
                 <motion.button
-                  className="bg-white text-[#FF8A5C] px-8 py-4 rounded-2xl font-black w-full shadow-xl hover:shadow-2xl transition-all"
+                  className="bg-white text-[#FF8A5C] px-4 py-4 rounded-2xl font-semibold w-full shadow-xl hover:shadow-2xl transition-all"
                   whileHover={{ 
                     scale: 1.05, 
                     boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
@@ -1882,7 +1875,7 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                   whileTap={{ scale: 0.95 }}
                 >
                   <FaPlane className="w-5 h-5 inline mr-2" />
-                  Get Wings AI App
+                  Get Wings AI Mini App
                 </motion.button>
                 
                 <div className="flex items-center justify-center gap-4 mt-4 text-white/80 text-sm">
@@ -1892,7 +1885,7 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                   </span>
                   <span className="flex items-center gap-1">
                     <FaUsers className="w-3 h-3" />
-                    50K+ Users
+                    110K+ Users
                   </span>
                 </div>
               </div>
