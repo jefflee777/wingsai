@@ -26,7 +26,6 @@ import {
   FaPause,
   FaVolumeUp,
   FaVolumeMute,
-  FaWeather,
   FaThermometerHalf,
   FaWind,
   FaEye,
@@ -38,9 +37,12 @@ import {
   FaMagic,
   FaChartLine,
   FaTrophy,
-  FaBadgeCheck
+  FaUsers,
+  FaRocket
 } from 'react-icons/fa';
+import { TiWeatherCloudy } from "react-icons/ti";
 import dynamic from 'next/dynamic';
+import { LuBadgeCheck } from "react-icons/lu";
 
 // Dynamically import map to avoid SSR issues
 const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false });
@@ -204,7 +206,7 @@ const WeatherWidget = ({ location, weather, temp }) => {
       className="bg-white/10 border border-white/20 rounded-xl p-3"
     >
       <div className="flex items-center gap-2">
-        <FaWeather className="text-orange-400 w-4 h-4" />
+        <TiWeatherCloudy className="text-orange-400 w-4 h-4" />
         <div>
           <p className="text-white text-xs font-medium">{location}</p>
           <p className="text-white/70 text-xs">{weather}</p>
@@ -669,7 +671,7 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                <FaBadgeCheck className="text-[#FF8A5C] w-4 h-4" />
+                <LuBadgeCheck className="text-[#FF8A5C] w-4 h-4" />
                 <span className="text-white/80 text-sm">Level {userLevel} Explorer</span>
               </motion.div>
             </div>
@@ -1580,7 +1582,7 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                                   </span>
                                   {stamp.weather && (
                                     <span className="flex items-center gap-1">
-                                      <FaWeather className="w-3 h-3" />
+                                      <TiWeatherCloudy className="w-3 h-3" />
                                       {stamp.weather}
                                     </span>
                                   )}
@@ -1751,7 +1753,7 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                 className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6"
               >
                 <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                  <FaWeather className="text-[#FF8A5C]" />
+                  <TiWeatherCloudy className="text-[#FF8A5C]" />
                   Current Weather
                 </h3>
                 <WeatherWidget 
@@ -1818,7 +1820,7 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <FaBadgeCheck className="text-[#FF8A5C] w-5 h-5" />
+                    <LuBadgeCheck className="text-[#FF8A5C] w-5 h-5" />
                     <span className="text-white font-medium capitalize">{achievement.replace('_', ' ')}</span>
                   </motion.div>
                 )) : (
