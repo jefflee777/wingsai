@@ -1230,11 +1230,9 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                   <div className="flex items-center justify-between p-6 border-b border-white/20">
                     <div className="flex items-center gap-3">
                       <motion.div
-                        animate={{ rotate: [0, 360] }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                        className="w-10 h-10 bg-[#FF8A5C] rounded-2xl flex items-center justify-center"
+                        className="w-14 h-14 flex items-center justify-center"
                       >
-                        <FaRobot className="w-5 h-5 text-white" />
+                        <Image src='/logo.svg' alt='logo' width={100} height={100} className='scale-110'/>
                       </motion.div>
                       <div>
                         <h3 className="text-white font-bold">Wings AI Assistant</h3>
@@ -1316,11 +1314,9 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                           <div className="flex items-start gap-3 max-w-[85%]">
                             {message.role === 'assistant' && (
                               <motion.div
-                                className="w-8 h-8 bg-[#FF8A5C] rounded-xl flex items-center justify-center flex-shrink-0 mt-1"
-                                animate={{ rotate: [0, 5, -5, 0] }}
-                                transition={{ duration: 2, repeat: Infinity }}
+                                className="w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1"
                               >
-                                <FaRobot className="w-4 h-4 text-white" />
+                                <Image src='/logo.svg' alt='logo' width={100} height={100} className='scale-125'/>
                               </motion.div>
                             )}
                             
@@ -1372,9 +1368,11 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                         className="flex justify-start"
                       >
                         <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 bg-[#FF8A5C] rounded-xl flex items-center justify-center">
-                            <FaRobot className="w-4 h-4 text-white" />
-                          </div>
+                        <motion.div
+                                className="w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1"
+                              >
+                                <Image src='/logo.svg' alt='logo' width={100} height={100} className='scale-125'/>
+                              </motion.div>
                           <div className="bg-white/10 border border-white/20 text-white p-4 rounded-3xl rounded-tl-lg">
                             <div className="flex items-center gap-2">
                               <span className="text-sm text-white/70">Wings AI is thinking</span>
