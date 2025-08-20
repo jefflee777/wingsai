@@ -43,6 +43,7 @@ import {
 import { TiWeatherCloudy } from "react-icons/ti";
 import dynamic from 'next/dynamic';
 import { LuBadgeCheck } from "react-icons/lu";
+import Image from 'next/image';
 
 // Dynamically import map to avoid SSR issues
 const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false });
@@ -639,7 +640,7 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0058ff] via-[#0046cc] to-[#003399] p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-transparent p-4 relative overflow-hidden">
       <FloatingParticles />
       
       <div className="max-w-7xl mx-auto relative z-10">
@@ -651,39 +652,24 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
         >
           <motion.div 
             className="flex items-center justify-center gap-4 mb-6"
-            whileHover={{ scale: 1.05 }}
           >
             <motion.div 
-              className="w-16 h-16 bg-gradient-to-br from-[#FE6F61] to-[#FF8A5C] rounded-3xl flex items-center justify-center shadow-2xl"
-              whileHover={{ 
-                rotate: [0, -10, 10, -5, 0],
-                scale: 1.1 
-              }}
-              transition={{ duration: 0.5 }}
+              className="w-16 h-16 flex items-center justify-center scale-125"
             >
-              <FaRobot className="w-8 h-8 text-white" />
+              <Image src='/logo.svg' alt='Logo' width={100} height={100}/>
             </motion.div>
             <div>
-              <h1 className="text-4xl font-black text-white">Wings AI Agent</h1>
-              <motion.div 
-                className="flex items-center gap-2 justify-center mt-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                <LuBadgeCheck className="text-[#FF8A5C] w-4 h-4" />
-                <span className="text-white/80 text-sm">Level {userLevel} Explorer</span>
-              </motion.div>
+              <h1 className="text-4xl font-bold text-white">Wings AI Agent</h1>
             </div>
           </motion.div>
           
           <motion.p 
-            className="text-white/90 text-lg max-w-2xl mx-auto"
+            className="text-white/90 text-lg max-w-2xl text-balance mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            Your AI-powered travel companion for earning rewards while exploring the world! ✈️
+            Your AI-powered travel companion for earning rewards while exploring the world!
           </motion.p>
 
           {/* AI Personality Selector */}
@@ -781,24 +767,9 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   className="p-8 text-center relative overflow-hidden"
-                >
-                  <motion.div 
-                    className="text-8xl mb-6"
-                    animate={{ 
-                      rotateY: [0, 360],
-                      scale: [1, 1.1, 1]
-                    }}
-                    transition={{ 
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    ✈️
-                  </motion.div>
-                  
+                > 
                   <motion.h2 
-                    className="text-3xl font-black text-white mb-4"
+                    className="text-3xl font-semibold text-white mb-4"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
@@ -807,43 +778,43 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                   </motion.h2>
                   
                   <motion.p 
-                    className="text-white/90 mb-8 text-lg leading-relaxed max-w-2xl mx-auto"
+                    className="text-white/90 mb-8 text-lg text-balance leading-relaxed max-w-2xl mx-auto"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
                   >
                     I'm your AI travel companion, ready to plan incredible journeys that earn you $WINGS tokens! 
-                    Let's explore the world together and turn every adventure into rewards! 🌟
+                    Let's explore the world together and turn every adventure into rewards! 
                   </motion.p>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
                     {[
                       { 
                         action: 'plan_trip', 
                         icon: FaRoute, 
                         title: 'Plan Journey', 
                         desc: 'Create personalized routes',
-                        color: 'from-[#FF8A5C] to-[#FE6F61]'
+                        color: 'bg-[#FF8A5C]'
                       },
                       { 
                         action: () => setCurrentStep('chat'), 
                         icon: FaRobot, 
                         title: 'Chat with AI', 
                         desc: 'Ask me anything about travel',
-                        color: 'from-[#00F6FF] to-[#0088cc]'
+                        color: 'bg-[#FF6F61]'
                       },
-                      { 
-                        action: 'simulate_checkin', 
-                        icon: FaCamera, 
-                        title: 'Demo Check-in', 
-                        desc: 'See how earning works',
-                        color: 'from-[#FF6F61] to-[#FF8A5C]'
-                      }
+                    //   { 
+                    //     action: 'simulate_checkin', 
+                    //     icon: FaCamera, 
+                    //     title: 'Demo Check-in', 
+                    //     desc: 'See how earning works',
+                    //     color: 'bg-[#FF6F61]'
+                    //   }
                     ].map((option, index) => (
                       <motion.button
                         key={index}
                         onClick={() => typeof option.action === 'function' ? option.action() : handleQuickAction(option.action)}
-                        className={`bg-gradient-to-r ${option.color} text-white p-6 rounded-3xl font-bold shadow-lg relative overflow-hidden group`}
+                        className={`${option.color} text-white p-6 rounded-3xl font-bold shadow-lg relative overflow-hidden group`}
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.7 + index * 0.1 }}
@@ -882,7 +853,6 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                       <motion.div 
                         key={index}
                         className="text-white/80"
-                        whileHover={{ scale: 1.1, color: '#FF8A5C' }}
                       >
                         <stat.icon className="w-6 h-6 mx-auto mb-2" />
                         <div className="font-bold text-lg">{stat.value}</div>
@@ -1664,7 +1634,7 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 relative overflow-hidden"
+              className="bg-white/10 backdrop-blur-md hidden border border-white/20 rounded-3xl p-6 relative overflow-hidden"
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-[#00F6FF]/10 to-transparent"
