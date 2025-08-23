@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FaMobileAlt, FaArrowRight } from 'react-icons/fa';
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { MdGeneratingTokens, MdOutlineVerified } from "react-icons/md";
+import Link from 'next/link';
 
 
 export default function HeroSection() {
@@ -48,22 +49,26 @@ export default function HeroSection() {
           className="flex flex-col sm:flex-row gap-4 sm:gap-6"
         >
           {/* Primary Button */}
+          <Link href='/ai'>
           <button className="group relative sm:scale-100 scale-75 bg-white text-background font-bold px-8 py-4 rounded-xl text-lg overflow-hidden premium-button-primary">
-            <div className="absolute inset-0 bg-gradient-to-r from-accent-main to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-accent-main opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="relative z-10 text-center flex items-center justify-center group-hover:text-white transition-colors duration-300">
               Start Your Journey
               <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-all duration-300" />
             </div>
           </button>
+          </Link>
 
           {/* Secondary Button */}
+          <a href='https://t.me/wingsaibot' target='_blank'>
           <button className="group relative bg-transparent sm:scale-100 scale-75 border-2 border-border-strong text-foreground font-semibold px-8 py-4 rounded-xl text-lg overflow-hidden premium-button-secondary">
-            <div className="absolute inset-0 bg-gradient-to-r from-accent-glow to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-accent-glow opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="relative z-10 flex items-center justify-center group-hover:text-background transition-colors duration-300">
               <FaMobileAlt className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
               Try Mini App
             </div>
           </button>
+          </a>
         </motion.div>
 
         {/* Stats or trust indicators */}
