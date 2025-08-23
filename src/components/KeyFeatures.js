@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { FaCompass, FaMapPin, FaCameraRetro, FaPassport, FaHandshake, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 
 // Custom SVG underline component for highlighted text
@@ -168,7 +169,7 @@ export default function KeyFeatures() {
                 <div className="text-sm text-text-secondary">Start your journey with Wings AI today</div>
               </div>
             </div>
-            
+            <Link href='/ai'>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -177,6 +178,7 @@ export default function KeyFeatures() {
               Get Started
               <FaArrowRight className="w-4 h-4" />
             </motion.button>
+            </Link>
           </div>
         </motion.div>
       </div>
