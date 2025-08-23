@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 // ✅ Viewport Metadata
 export const viewport = {
-  themeColor: "#0058ff", // Wings AI brand blue
+  themeColor: "#0058ff", 
   colorScheme: "dark",
 };
 
