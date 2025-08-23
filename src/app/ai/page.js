@@ -390,7 +390,7 @@ PERSONALITY: You're like the most excited travel buddy who LOVES exploring and e
 ENHANCED CAPABILITIES:
 - Generate detailed travel itineraries with exact locations, costs, and earning potential
 - Provide real-time weather insights and travel conditions
-- Calculate precise $WINGS token earnings with bonuses and multipliers
+- Calculate precise $WINGSAI token earnings with bonuses and multipliers
 - Suggest hidden gems and local experiences
 - Offer partnership deals and exclusive discounts
 - Track user progress and achievements
@@ -570,7 +570,7 @@ SPECIALTY: Authentic, off-the-beaten-path experiences with:
       role: 'assistant',
       content: `🎉 AMAZING! I've crafted the perfect ${prefs.style} adventure just for you! 
 
-✨ Your personalized route will earn you ${totalEarnings} $WINGS tokens!
+✨ Your personalized route will earn you ${totalEarnings} $WINGSAI tokens!
 🗺️ I've selected 3 incredible destinations based on your preferences
 📸 Each location has prime photo spots for bonus tokens
 🏆 Complete this route to unlock the "Explorer" achievement!
@@ -622,7 +622,7 @@ Ready to dive into the details? Check out your route below! 👇`,
       content: `🎉 INCREDIBLE CHECK-IN! 
 
 ✅ Location verified successfully!
-🏆 Earned ${finalBonus} $WINGS tokens!
+🏆 Earned ${finalBonus} $WINGSAI tokens!
 📸 ${newStamp.photos} photos uploaded automatically
 🌟 Bonus applied for Level ${userLevel} status
 🗺️ Your travel passport has been updated!
@@ -747,7 +747,7 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                               <h4 className="font-bold">{dest.name}</h4>
                               <p className="text-sm">{dest.weather}</p>
                               <p className="text-sm text-blue-600 font-semibold">
-                                {dest.earnings} $WINGS tokens
+                                {dest.earnings} $WINGSAI tokens
                               </p>
                             </div>
                           </Popup>
@@ -783,7 +783,7 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
                   >
-                    I'm your AI travel companion, ready to plan incredible journeys that earn you $WINGS tokens! 
+                    I'm your AI travel companion, ready to plan incredible journeys that earn you $WINGSAI tokens! 
                     Let's explore the world together and turn every adventure into rewards! 
                   </motion.p>
                   
@@ -1051,7 +1051,7 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                       { 
                         icon: FaCoins, 
                         value: suggestedRoute.reduce((sum, dest) => sum + dest.earnings, 0), 
-                        label: '$WINGS Tokens',
+                        label: '$WINGSAI Tokens',
                         color: 'text-[#00F6FF]'
                       },
                       { 
@@ -1647,7 +1647,7 @@ Keep exploring to unlock more achievements and higher earning multipliers! 🚀`
                 >
                   <FaCoins className="text-[#00F6FF]" />
                 </motion.div>
-                Your $WINGS Balance
+                Your $WINGSAI Balance
               </h3>
               
               <div className="text-center relative z-10">
