@@ -140,7 +140,7 @@ export default function Tokenomics() {
           
           <div className="flex items-center justify-center gap-3 text-2xl font-bold">
             <span className="text-foreground">Total Supply:</span>
-            <span className="text-accent-main">2B $WINGS</span>
+            <span className="text-accent-main">2B $WINGSAI</span>
           </div>
         </motion.div>
 
@@ -200,7 +200,7 @@ export default function Tokenomics() {
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-foreground">
-                    {activeIndex !== null ? `${tokenData[activeIndex].value}%` : '$WINGS'}
+                    {activeIndex !== null ? `${tokenData[activeIndex].value}%` : '$WINGSAI'}
                   </div>
                   <div className="text-lg text-text-secondary">
                     {activeIndex !== null ? tokenData[activeIndex].name : 'Token'}
