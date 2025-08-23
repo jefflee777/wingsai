@@ -92,7 +92,7 @@ export default function CTASection() {
             <FaArrowRight className="ml-2 text-base group-hover:translate-x-1 transition-transform duration-300" />
           </button>
           </Link>
-          <a href='/' target='_blank'>
+          <a href='https://t.me/wingsaibot' target='_blank'>
           <button className="group bg-white/10 border border-border-soft text-foreground px-8 py-4 rounded-xl text-lg font-semibold flex items-center gap-3 w-full sm:w-auto backdrop-blur-sm shadow-lg transition-all duration-300 hover:border-accent-main hover:text-accent-main focus:outline-none">
             <FaMobileAlt className="text-2xl" />
             Open Mini App
