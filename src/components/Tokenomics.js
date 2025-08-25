@@ -135,7 +135,7 @@ export default function Tokenomics() {
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-            <HighlightedText><span className='font2 tracking-wide text-5xl sm:text-6xl lg:text-7xl'>Tokenomics</span></HighlightedText> <span className="text-text-secondary font-light">(simplified)</span>
+            <HighlightedText><span className='font2 tracking-wide text-5xl sm:text-6xl lg:text-7xl'>Tokenomics</span></HighlightedText>
           </h2>
           
           <div className="flex items-center justify-center gap-3 text-2xl font-bold">
