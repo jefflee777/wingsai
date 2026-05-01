@@ -1,25 +1,27 @@
-import CTASection from "@/components/cta";
-import EcosystemBenefits from "@/components/EcosystemBenefits";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Header";
-import HeroSection from "@/components/Hero";
-import HowItWorks from "@/components/HowItWorks";
-import KeyFeatures from "@/components/KeyFeatures";
-import Roadmap from "@/components/Roadmap";
-import Tokenomics from "@/components/Tokenomics";
+import Navbar from "@/components/layout/Navbar";
+import Hero from "@/components/landing/Hero";
+import Features from "@/components/landing/Features";
+import HowItWorks from "@/components/landing/HowItWorks";
+import EcosystemBenefits from "@/components/landing/EcosystemBenefits";
+import Tokenomics from "@/components/landing/Tokenomics";
+import Roadmap from "@/components/landing/Roadmap";
+import CTA from "@/components/landing/CTA";
+import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
-    <div>
-      <Navbar/>
-      <HeroSection/>
-      <HowItWorks/>
-      <KeyFeatures/>
-      <EcosystemBenefits/>
-      <Tokenomics/>
-      <Roadmap/>
-      <CTASection/>
-      <Footer/>
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Features />
+        <HowItWorks />
+        <EcosystemBenefits />
+        <Tokenomics />
+        <Roadmap />
+        <CTA />
+      </main>
+      <Footer />
+    </>
   );
 }
