@@ -69,13 +69,13 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="#join"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] hover:shadow-[var(--shadow-glow)] hover:scale-105 active:scale-95 transition-all duration-300"
+            <Link
+              href="/login"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] hover:scale-105 active:scale-95 transition-all duration-300"
             >
               <IoRocketOutline className="text-base" />
               Launch App
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Toggle */}
@@ -113,17 +113,20 @@ export default function Navbar() {
                   {link.label}
                 </motion.a>
               ))}
-              <motion.a
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                href="#join"
-                onClick={() => setMobileOpen(false)}
-                className="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full text-base font-semibold text-white bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] shadow-lg"
               >
-                <IoRocketOutline />
-                Launch App
-              </motion.a>
+                <Link
+                  href="/login"
+                  onClick={() => setMobileOpen(false)}
+                  className="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full text-base font-semibold text-white bg-[var(--color-primary)] shadow-lg"
+                >
+                  <IoRocketOutline />
+                  Launch App
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}
