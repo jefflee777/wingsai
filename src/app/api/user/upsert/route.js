@@ -11,7 +11,7 @@ export async function POST(req) {
 
     const user = await prisma.user.upsert({
       where: { wallet_address: wallet_address.toLowerCase() },
-      update: {},
+      update: username ? { username } : {},
       create: {
         wallet_address: wallet_address.toLowerCase(),
         username: username || `explorer_${wallet_address.slice(2, 8)}`,

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import { motion } from "motion/react";
-import { LuUser, LuAward, LuMapPin, LuShield, LuTrendingUp, LuWallet, LuCopy, LuCheck, LuRoute, LuTarget, LuGift } from "react-icons/lu";
+import { LuUser, LuAward, LuMapPin, LuShield, LuTrendingUp, LuWallet, LuCopy, LuCheck, LuRoute, LuTarget, LuGift, LuPencil, LuSave, LuX, LuLoader } from "react-icons/lu";
 import Card, { CardHeader, CardTitle } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import { getLevelTitle } from "@/lib/rewards";
@@ -13,6 +13,9 @@ export default function IdentityPage() {
   const [user, setUser] = useState(null);
   const [stats, setStats] = useState({ journeys: 0, checkpoints: 0, verifications: 0 });
   const [copied, setCopied] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const [newName, setNewName] = useState("");
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => { loadProfile(); }, [address]);
 
@@ -31,6 +34,29 @@ export default function IdentityPage() {
         });
       }
     } catch (e) { console.warn(e); }
+  }
+
+  async function saveName() {
+    if (!newName.trim() || newName === user?.username) {
+      setEditing(false);
+      return;
+    }
+    setSaving(true);
+    try {
+      const res = await fetch("/api/user/upsert", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ wallet_address: address, username: newName.trim() })
+      });
+      if (res.ok) {
+        const u = await res.json();
+        setUser((prev) => ({ ...prev, username: u.username }));
+      }
+    } catch (e) { console.warn("Save name:", e); }
+    finally {
+      setSaving(false);
+      setEditing(false);
+    }
   }
 
   const copyAddr = () => { navigator.clipboard.writeText(address); setCopied(true); setTimeout(() => setCopied(false), 2000); };
@@ -58,14 +84,50 @@ export default function IdentityPage() {
       <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
         <Card>
           <div className="flex flex-col sm:flex-row items-start gap-5">
-            <div className="w-16 h-16 rounded-[var(--radius-xl)] bg-[var(--color-primary-light)] flex items-center justify-center text-2xl flex-shrink-0">
-              <LuUser className="w-8 h-8 text-[var(--color-primary)]" />
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[var(--color-primary-light)] overflow-hidden shadow-sm flex items-center justify-center flex-shrink-0 border-2 border-white">
+              {user ? (
+                <img src={`https://api.dicebear.com/7.x/adventurer/svg?seed=${user?.username || address}&backgroundColor=transparent`} alt="Avatar" className="w-full h-full object-cover" />
+              ) : (
+                <LuUser className="w-8 h-8 text-[var(--color-primary)]" />
+              )}
             </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-1">
-                <h2 className="text-xl font-bold font-[family-name:var(--font-heading)]">{user?.username || "Explorer"}</h2>
-                <Badge variant="primary">Level {level}</Badge>
-                <Badge variant="purple">{title}</Badge>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-2 flex-wrap">
+                {editing ? (
+                  <div className="flex items-center gap-2 max-w-full">
+                    <input
+                      type="text"
+                      autoFocus
+                      maxLength={20}
+                      value={newName}
+                      onChange={(e) => setNewName(e.target.value)}
+                      onKeyDown={(e) => e.key === "Enter" && saveName()}
+                      className="px-3 py-1 text-lg font-bold font-[family-name:var(--font-heading)] border border-[var(--color-primary)] rounded-[var(--radius-md)] focus:outline-none w-full sm:w-auto"
+                    />
+                    <button onClick={saveName} disabled={saving} className="p-1.5 rounded-[var(--radius-md)] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] disabled:opacity-50 transition-colors">
+                      {saving ? <LuLoader className="w-4 h-4 animate-spin" /> : <LuSave className="w-4 h-4" />}
+                    </button>
+                    <button onClick={() => setEditing(false)} disabled={saving} className="p-1.5 rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border)] disabled:opacity-50 transition-colors">
+                      <LuX className="w-4 h-4" />
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-xl sm:text-2xl font-bold font-[family-name:var(--font-heading)] truncate max-w-[200px] sm:max-w-xs">{user?.username || "Explorer"}</h2>
+                    <button 
+                      onClick={() => { setNewName(user?.username || ""); setEditing(true); }} 
+                      className="p-1 rounded text-[var(--color-text-muted)] hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-light)] transition-colors"
+                    >
+                      <LuPencil className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
+                {!editing && (
+                  <>
+                    <Badge variant="primary">Level {level}</Badge>
+                    <Badge variant="purple">{title}</Badge>
+                  </>
+                )}
               </div>
               <div className="flex items-center gap-2 mb-3">
                 <LuWallet className="w-3.5 h-3.5 text-[var(--color-text-muted)]" />
