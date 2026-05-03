@@ -1,0 +1,204 @@
+// Wings — Prisma Schema for Supabase PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ── USERS ──
+model User {
+  id               String   @id @default(uuid()) @db.Uuid
+  wallet_address   String   @unique
+  username         String?
+  avatar           String?
+  travel_style     Json     @default("{}")
+  reputation_score Int      @default(0)
+  total_tokens     Decimal  @default(0) @db.Decimal(20, 4)
+  level            Int      @default(1)
+  created_at       DateTime @default(now()) @db.Timestamptz
+  updated_at       DateTime @default(now()) @updatedAt @db.Timestamptz
+
+  journeys      Journey[]
+  verifications Verification[]
+  rewards       Reward[]
+  content       Content[]
+
+  @@map("users")
+}
+
+// ── JOURNEYS ──
+enum JourneyStatus {
+  planned
+  active
+  completed
+  abandoned
+
+  @@map("journey_status")
+}
+
+model Journey {
+  id                    String        @id @default(uuid()) @db.Uuid
+  user_id               String        @db.Uuid
+  title                 String
+  description           String?
+  status                JourneyStatus @default(planned)
+  destination           String?
+  route                 Json          @default("{}")
+  ai_plan               Json          @default("{}")
+  budget                Decimal?      @db.Decimal(12, 2)
+  total_rewards         Decimal       @default(0) @db.Decimal(20, 4)
+  total_checkpoints     Int           @default(0)
+  verified_checkpoints  Int           @default(0)
+  started_at            DateTime?     @db.Timestamptz
+  completed_at          DateTime?     @db.Timestamptz
+  created_at            DateTime      @default(now()) @db.Timestamptz
+
+  user        User         @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  checkpoints Checkpoint[]
+  content     Content[]
+
+  @@index([user_id])
+  @@index([status])
+  @@map("journeys")
+}
+
+// ── CHECKPOINTS ──
+model Checkpoint {
+  id           String    @id @default(uuid()) @db.Uuid
+  journey_id   String    @db.Uuid
+  name         String
+  description  String?
+  lat          Float
+  lng          Float
+  address      String?
+  rarity_score Int       @default(50)
+  category     String    @default("landmark")
+  sort_order   Int       @default(0)
+  verified     Boolean   @default(false)
+  verified_at  DateTime? @db.Timestamptz
+  reward_value Decimal   @default(0) @db.Decimal(20, 4)
+  created_at   DateTime  @default(now()) @db.Timestamptz
+
+  journey       Journey        @relation(fields: [journey_id], references: [id], onDelete: Cascade)
+  verifications Verification[]
+  content       Content[]
+
+  @@index([journey_id])
+  @@map("checkpoints")
+}
+
+// ── VERIFICATIONS ──
+enum VerifyMethod {
+  gps
+  image
+  both
+
+  @@map("verify_method")
+}
+
+enum VerifyStatus {
+  pending
+  approved
+  rejected
+  flagged
+
+  @@map("verify_status")
+}
+
+model Verification {
+  id                       String       @id @default(uuid()) @db.Uuid
+  checkpoint_id            String       @db.Uuid
+  user_id                  String       @db.Uuid
+  method                   VerifyMethod @default(gps)
+  gps_lat                  Float?
+  gps_lng                  Float?
+  gps_accuracy             Float?
+  distance_from_checkpoint Float?
+  image_url                String?
+  fraud_score              Float        @default(0)
+  status                   VerifyStatus @default(pending)
+  created_at               DateTime     @default(now()) @db.Timestamptz
+
+  checkpoint Checkpoint @relation(fields: [checkpoint_id], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id])
+  @@map("verifications")
+}
+
+// ── REWARDS ──
+enum RewardSource {
+  checkpoint
+  content
+  bonus
+  streak
+  referral
+
+  @@map("reward_source")
+}
+
+model Reward {
+  id           String       @id @default(uuid()) @db.Uuid
+  user_id      String       @db.Uuid
+  source       RewardSource @default(checkpoint)
+  source_id    String?      @db.Uuid
+  amount       Decimal      @db.Decimal(20, 4)
+  multiplier   Float        @default(1.0)
+  final_amount Decimal      @db.Decimal(20, 4)
+  claimed      Boolean      @default(false)
+  claimed_at   DateTime?    @db.Timestamptz
+  tx_hash      String?
+  earned_at    DateTime     @default(now()) @db.Timestamptz
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id])
+  @@index([claimed])
+  @@map("rewards")
+}
+
+// ── CONTENT ──
+enum ContentType {
+  review
+  photo
+  tip
+  story
+
+  @@map("content_type")
+}
+
+enum ContentStatus {
+  pending
+  scored
+  rewarded
+  rejected
+
+  @@map("content_status")
+}
+
+model Content {
+  id              String        @id @default(uuid()) @db.Uuid
+  user_id         String        @db.Uuid
+  checkpoint_id   String?       @db.Uuid
+  journey_id      String?       @db.Uuid
+  type            ContentType   @default(review)
+  title           String?
+  body            String?
+  media_urls      String[]      @default([])
+  quality_score   Float?
+  reward_granted  Decimal       @default(0) @db.Decimal(20, 4)
+  status          ContentStatus @default(pending)
+  created_at      DateTime      @default(now()) @db.Timestamptz
+
+  user       User        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  checkpoint Checkpoint? @relation(fields: [checkpoint_id], references: [id], onDelete: SetNull)
+  journey    Journey?    @relation(fields: [journey_id], references: [id], onDelete: SetNull)
+
+  @@index([user_id])
+  @@map("content")
+}

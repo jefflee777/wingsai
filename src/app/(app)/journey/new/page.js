@@ -13,12 +13,12 @@ import {
   LuRoute,
   LuTarget,
   LuCompass,
+  LuGift,
 } from "react-icons/lu";
 import Card, { CardTitle } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import Input, { Textarea, Select } from "@/components/ui/Input";
 import Badge from "@/components/ui/Badge";
-import { supabase } from "@/lib/supabase";
 
 const travelStyles = [
   { value: "adventure", label: "Adventure" },
@@ -83,49 +83,28 @@ export default function NewJourneyPage() {
 
     try {
       // Get user
-      const { data: user } = await supabase
-        .from("users")
-        .select("id")
-        .eq("wallet_address", address.toLowerCase())
-        .single();
-
-      if (!user) throw new Error("User not found");
+      const uRes = await fetch(`/api/user/${address.toLowerCase()}`);
+      if (!uRes.ok) throw new Error("User not found");
+      const user = await uRes.json();
 
       // Create journey
-      const { data: journey, error: jErr } = await supabase
-        .from("journeys")
-        .insert({
-          user_id: user.id,
+      const jRes = await fetch("/api/journey", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: user.id,
           title: aiPlan.title || `${form.destination} Adventure`,
           description: aiPlan.description || "",
           destination: form.destination,
-          status: "planned",
           route: aiPlan.route || {},
-          ai_plan: aiPlan,
+          aiPlan: aiPlan,
           budget: form.budget ? parseFloat(form.budget) : null,
-          total_checkpoints: aiPlan.checkpoints?.length || 0,
-        })
-        .select()
-        .single();
+          checkpoints: aiPlan.checkpoints,
+        }),
+      });
 
-      if (jErr) throw jErr;
-
-      // Create checkpoints
-      if (aiPlan.checkpoints?.length && journey) {
-        const checkpoints = aiPlan.checkpoints.map((cp, i) => ({
-          journey_id: journey.id,
-          name: cp.name,
-          description: cp.description || "",
-          lat: cp.lat,
-          lng: cp.lng,
-          address: cp.address || "",
-          rarity_score: cp.rarityScore || 50,
-          category: cp.category || "landmark",
-          sort_order: i,
-        }));
-
-        await supabase.from("checkpoints").insert(checkpoints);
-      }
+      if (!jRes.ok) throw new Error("Failed to create journey");
+      const journey = await jRes.json();
 
       router.push(`/journey/${journey.id}`);
     } catch (e) {

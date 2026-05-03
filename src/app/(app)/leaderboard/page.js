@@ -5,7 +5,6 @@ import { motion } from "motion/react";
 import { LuTrophy, LuMedal, LuTarget, LuGift, LuRoute, LuUser, LuFilter } from "react-icons/lu";
 import Card, { CardHeader, CardTitle } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import { supabase } from "@/lib/supabase";
 
 export default function LeaderboardPage() {
   const [users, setUsers] = useState([]);
@@ -17,13 +16,11 @@ export default function LeaderboardPage() {
   async function loadLeaderboard() {
     setLoading(true);
     try {
-      const orderCol = tab === "tokens" ? "total_tokens" : "reputation_score";
-      const { data } = await supabase
-        .from("users")
-        .select("id, username, wallet_address, total_tokens, reputation_score, level")
-        .order(orderCol, { ascending: false })
-        .limit(25);
-      setUsers(data || []);
+      const res = await fetch(`/api/leaderboard?tab=${tab}`);
+      if (res.ok) {
+        const data = await res.json();
+        setUsers(data || []);
+      }
     } catch (e) { console.warn(e); }
     finally { setLoading(false); }
   }

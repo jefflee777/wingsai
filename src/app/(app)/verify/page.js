@@ -16,7 +16,6 @@ import {
 import Card, { CardHeader, CardTitle } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { supabase } from "@/lib/supabase";
 import { formatDistance } from "@/lib/gps";
 
 export default function VerifyPage() {
@@ -34,39 +33,11 @@ export default function VerifyPage() {
   async function loadData() {
     if (!address) return;
     try {
-      const { data: user } = await supabase
-        .from("users")
-        .select("id")
-        .eq("wallet_address", address.toLowerCase())
-        .single();
-      if (!user) return;
-
-      // Get active journey checkpoints (unverified)
-      const { data: journeys } = await supabase
-        .from("journeys")
-        .select("id")
-        .eq("user_id", user.id)
-        .in("status", ["active", "planned"]);
-
-      if (journeys?.length) {
-        const journeyIds = journeys.map((j) => j.id);
-        const { data: cps } = await supabase
-          .from("checkpoints")
-          .select("*, journey:journeys(title, destination)")
-          .in("journey_id", journeyIds)
-          .eq("verified", false)
-          .order("sort_order", { ascending: true });
-        setCheckpoints(cps || []);
-      }
-
-      // Recent verifications
-      const { data: vfs } = await supabase
-        .from("verifications")
-        .select("*, checkpoint:checkpoints(name)")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false })
-        .limit(10);
-      setVerifications(vfs || []);
+      const res = await fetch(`/api/verify?wallet=${address.toLowerCase()}`);
+      if (!res.ok) return;
+      const data = await res.json();
+      setCheckpoints(data.checkpoints || []);
+      setVerifications(data.verifications || []);
     } catch (e) {
       console.warn("Verify load:", e);
     } finally {
@@ -89,11 +60,8 @@ export default function VerifyPage() {
 
       setGpsStatus("verifying");
 
-      const { data: user } = await supabase
-        .from("users")
-        .select("id")
-        .eq("wallet_address", address.toLowerCase())
-        .single();
+      const uRes = await fetch(`/api/user/${address.toLowerCase()}`);
+      const user = await uRes.json();
 
       const res = await fetch("/api/verify/gps", {
         method: "POST",

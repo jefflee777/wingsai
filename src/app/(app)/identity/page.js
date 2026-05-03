@@ -6,7 +6,6 @@ import { motion } from "motion/react";
 import { LuUser, LuAward, LuMapPin, LuShield, LuTrendingUp, LuWallet, LuCopy, LuCheck, LuRoute, LuTarget, LuGift } from "react-icons/lu";
 import Card, { CardHeader, CardTitle } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import { supabase } from "@/lib/supabase";
 import { getLevelTitle } from "@/lib/rewards";
 
 export default function IdentityPage() {
@@ -20,15 +19,17 @@ export default function IdentityPage() {
   async function loadProfile() {
     if (!address) return;
     try {
-      const { data: u } = await supabase.from("users").select("*").eq("wallet_address", address.toLowerCase()).single();
-      if (u) setUser(u);
-      const { data: j } = await supabase.from("journeys").select("id, verified_checkpoints").eq("user_id", u?.id);
-      const { data: v } = await supabase.from("verifications").select("id").eq("user_id", u?.id).eq("status", "approved");
-      setStats({
-        journeys: j?.length || 0,
-        checkpoints: j?.reduce((s, x) => s + (x.verified_checkpoints || 0), 0) || 0,
-        verifications: v?.length || 0,
-      });
+      const res = await fetch(`/api/user/${address.toLowerCase()}`);
+      if (!res.ok) return;
+      const u = await res.json();
+      if (u) {
+        setUser(u);
+        setStats({
+          journeys: u._count?.journeys || 0,
+          checkpoints: u.journeys?.reduce((s, x) => s + (x.verified_checkpoints || 0), 0) || 0,
+          verifications: u._count?.verifications || 0,
+        });
+      }
     } catch (e) { console.warn(e); }
   }
 

@@ -23,7 +23,6 @@ import {
 import Card, { CardHeader, CardTitle } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { supabase } from "@/lib/supabase";
 import { formatDistance } from "@/lib/gps";
 
 const MapView = dynamic(() => import("@/components/map/JourneyMap"), { ssr: false });
@@ -42,19 +41,12 @@ export default function ActiveJourneyPage() {
 
   const loadJourney = useCallback(async () => {
     try {
-      const { data: j } = await supabase
-        .from("journeys")
-        .select("*")
-        .eq("id", id)
-        .single();
-      if (j) setJourney(j);
-
-      const { data: cps } = await supabase
-        .from("checkpoints")
-        .select("*")
-        .eq("journey_id", id)
-        .order("sort_order", { ascending: true });
-      if (cps) setCheckpoints(cps);
+      const res = await fetch(`/api/journey/${id}`);
+      if (res.ok) {
+        const j = await res.json();
+        setJourney(j);
+        setCheckpoints(j.checkpoints || []);
+      }
     } catch (e) {
       console.warn("Load journey:", e);
     } finally {
@@ -79,11 +71,9 @@ export default function ActiveJourneyPage() {
         );
       });
 
-      const { data: user } = await supabase
-        .from("users")
-        .select("id")
-        .eq("wallet_address", address.toLowerCase())
-        .single();
+      const uRes = await fetch(`/api/user/${address.toLowerCase()}`);
+      if (!uRes.ok) throw new Error("Could not find user.");
+      const user = await uRes.json();
 
       const res = await fetch("/api/verify/gps", {
         method: "POST",

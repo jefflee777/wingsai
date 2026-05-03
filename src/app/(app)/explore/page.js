@@ -16,7 +16,6 @@ import {
 import Card, { CardHeader, CardTitle } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { supabase } from "@/lib/supabase";
 
 export default function ExplorePage() {
   const { address } = useAccount();
@@ -31,25 +30,16 @@ export default function ExplorePage() {
   async function loadJourneys() {
     if (!address) { setLoading(false); return; }
     try {
-      const { data: user } = await supabase
-        .from("users")
-        .select("id")
-        .eq("wallet_address", address.toLowerCase())
-        .single();
-
-      if (!user) { setLoading(false); return; }
-
-      let query = supabase
-        .from("journeys")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false });
-
+      let url = `/api/journey?wallet=${address.toLowerCase()}`;
       if (filter !== "all") {
-        query = query.eq("status", filter);
+        url += `&status=${filter}`;
       }
-
-      const { data } = await query;
+      const res = await fetch(url);
+      if (!res.ok) {
+        setLoading(false);
+        return;
+      }
+      const data = await res.json();
       setJourneys(data || []);
     } catch (e) {
       console.warn("Load journeys:", e);

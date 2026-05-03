@@ -21,7 +21,6 @@ import {
 import Card, { CardHeader, CardTitle } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { supabase } from "@/lib/supabase";
 import { getLevelTitle } from "@/lib/rewards";
 
 export default function DashboardPage() {
@@ -46,37 +45,37 @@ export default function DashboardPage() {
 
     try {
       // Fetch user
-      const { data: userData } = await supabase
-        .from("users")
-        .select("*")
-        .eq("wallet_address", wallet)
-        .single();
+      const res = await fetch(`/api/user/${wallet}`);
+      if (!res.ok) return;
+      const userData = await res.json();
       if (userData) setUser(userData);
 
-      // Fetch journeys
-      const { data: journeyData } = await supabase
-        .from("journeys")
-        .select("*")
-        .eq("user_id", userData?.id)
-        .order("created_at", { ascending: false })
-        .limit(5);
-      if (journeyData) setJourneys(journeyData);
+      // Fetch journeys and rewards
+      const [jRes, rRes] = await Promise.all([
+        fetch(`/api/journey?userId=${userData.id}`),
+        fetch(`/api/rewards?userId=${userData.id}&limit=5`)
+      ]);
 
-      // Fetch recent rewards
-      const { data: rewardData } = await supabase
-        .from("rewards")
-        .select("*")
-        .eq("user_id", userData?.id)
-        .order("earned_at", { ascending: false })
-        .limit(5);
-      if (rewardData) setRecentRewards(rewardData);
+      let journeyData = [];
+      let rewardData = [];
+
+      if (jRes.ok) {
+        journeyData = await jRes.json();
+        setJourneys(journeyData.slice(0, 5));
+      }
+
+      if (rRes.ok) {
+        rewardData = await rRes.json();
+        setRecentRewards(rewardData);
+      }
 
       // Compute stats
-      const totalJ = journeyData?.length || 0;
-      const totalR = rewardData?.reduce((sum, r) => sum + Number(r.final_amount || 0), 0) || 0;
+      const totalJ = journeyData.length;
+      const totalR = rewardData.reduce((sum, r) => sum + Number(r.final_amount || 0), 0);
+      
       setStats({
         totalJourneys: totalJ,
-        totalCheckpoints: journeyData?.reduce((s, j) => s + (j.verified_checkpoints || 0), 0) || 0,
+        totalCheckpoints: journeyData.reduce((s, j) => s + (j.verified_checkpoints || 0), 0),
         totalRewards: totalR,
       });
     } catch (e) {

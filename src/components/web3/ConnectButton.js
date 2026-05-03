@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useAccount, useConnect, useDisconnect, useBalance } from "wagmi";
 import { LuWallet, LuLogOut, LuCopy, LuCheck, LuChevronDown } from "react-icons/lu";
 import { useAppStore } from "@/lib/store";
-import { supabase } from "@/lib/supabase";
 
 export default function ConnectButton({ fullWidth = false }) {
   const { address, isConnected } = useAccount();
@@ -26,14 +25,12 @@ export default function ConnectButton({ fullWidth = false }) {
           const wallet = data.accounts[0];
           if (wallet) {
             try {
-              const { data: user, error } = await supabase
-                .from("users")
-                .upsert(
-                  { wallet_address: wallet.toLowerCase(), username: `explorer_${wallet.slice(2, 8)}` },
-                  { onConflict: "wallet_address" }
-                )
-                .select()
-                .single();
+              const res = await fetch("/api/user/upsert", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ wallet_address: wallet.toLowerCase() })
+              });
+              const user = await res.json();
 
               if (user) setUserProfile(user);
             } catch (e) {

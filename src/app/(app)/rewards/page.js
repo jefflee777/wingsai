@@ -6,7 +6,6 @@ import { motion } from "motion/react";
 import { LuGift, LuCoins, LuCheck, LuClock, LuTarget, LuSquarePen, LuZap, LuTrendingUp, LuFilter } from "react-icons/lu";
 import Card, { CardHeader, CardTitle } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import { supabase } from "@/lib/supabase";
 
 export default function RewardsPage() {
   const { address } = useAccount();
@@ -19,12 +18,13 @@ export default function RewardsPage() {
   async function loadRewards() {
     if (!address) return;
     try {
-      const { data: u } = await supabase.from("users").select("id").eq("wallet_address", address.toLowerCase()).single();
-      if (!u) return;
-      let q = supabase.from("rewards").select("*").eq("user_id", u.id).order("earned_at", { ascending: false });
-      if (filter === "claimed") q = q.eq("claimed", true);
-      if (filter === "unclaimed") q = q.eq("claimed", false);
-      const { data } = await q;
+      const res = await fetch(`/api/rewards?wallet=${address.toLowerCase()}`);
+      if (!res.ok) return;
+      let data = await res.json();
+      
+      if (filter === "claimed") data = data.filter(r => r.claimed);
+      if (filter === "unclaimed") data = data.filter(r => !r.claimed);
+      
       setRewards(data || []);
     } catch (e) { console.warn(e); }
     finally { setLoading(false); }

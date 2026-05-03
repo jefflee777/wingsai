@@ -9,7 +9,6 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import Input, { Textarea, Select } from "@/components/ui/Input";
 import Modal from "@/components/ui/Modal";
-import { supabase } from "@/lib/supabase";
 
 export default function ContentPage() {
   const { address } = useAccount();
@@ -24,10 +23,11 @@ export default function ContentPage() {
   async function loadContent() {
     if (!address) return;
     try {
-      const { data: u } = await supabase.from("users").select("id").eq("wallet_address", address.toLowerCase()).single();
-      if (!u) return;
-      const { data } = await supabase.from("content").select("*").eq("user_id", u.id).order("created_at", { ascending: false });
-      setContent(data || []);
+      const res = await fetch(`/api/content?wallet=${address.toLowerCase()}`);
+      if (res.ok) {
+        const data = await res.json();
+        setContent(data || []);
+      }
     } catch (e) { console.warn(e); }
     finally { setLoading(false); }
   }
@@ -36,11 +36,16 @@ export default function ContentPage() {
     if (!form.title.trim() || !form.body.trim()) return;
     setSubmitting(true);
     try {
-      const { data: u } = await supabase.from("users").select("id").eq("wallet_address", address.toLowerCase()).single();
-      await supabase.from("content").insert({ user_id: u.id, type: form.type, title: form.title, body: form.body, status: "pending" });
-      setShowModal(false);
-      setForm({ type: "review", title: "", body: "" });
-      loadContent();
+      const res = await fetch("/api/content", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ wallet: address.toLowerCase(), type: form.type, title: form.title, body: form.body })
+      });
+      if (res.ok) {
+        setShowModal(false);
+        setForm({ type: "review", title: "", body: "" });
+        loadContent();
+      }
     } catch (e) { console.warn(e); }
     finally { setSubmitting(false); }
   }
