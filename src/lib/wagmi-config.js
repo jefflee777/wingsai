@@ -15,6 +15,7 @@ export const wagmiConfig = createConfig({
       ? [
           walletConnect({
             projectId,
+            showQrModal: true,
             metadata: {
               name: "Wings",
               description: "AI-Powered Travel Intelligence Platform",
