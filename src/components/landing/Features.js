@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 md:py-32 relative bg-[#FAFAFA]">
+    <section id="features" className="py-24 relative bg-white">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
         
         {/* Section header */}
@@ -36,9 +36,13 @@ export default function Features() {
               <h3 className="text-3xl md:text-[2.5rem] font-bold text-[#0A0A0E] mb-5 leading-tight font-[family-name:var(--font-display)] tracking-tight">
                 AI-Powered Itineraries
               </h3>
-              <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-lg font-medium">
+              <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-lg font-medium mb-6">
                 Generate optimal routes with natural language, not static maps. The platform transforms your inputs into optimized, high-performance travel plans.
               </p>
+              <div className="flex items-center gap-4">
+                <span className="px-4 py-2 bg-blue-50 text-[#007DF0] rounded-full sm:text-sm text-xs font-bold border border-blue-100">Smart Routing</span>
+                <span className="px-4 py-2 bg-pink-50 text-[#FF4B82] rounded-full sm:text-sm text-xs font-bold border border-pink-100">Dynamic Adjustments</span>
+              </div>
             </div>
             
             {/* Graphic for Card 1 (Donut Chart) */}
@@ -63,13 +67,29 @@ export default function Features() {
                   <path d="M 50 50 L 68 74" stroke="white" strokeWidth="2" />
                   <path d="M 50 50 L 26 68" stroke="white" strokeWidth="2" />
                 </svg>
+
+                {/* Highly detailed floating cards */}
+                <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute -top-8 -left-4 md:-left-12 px-4 py-3 bg-white/90 backdrop-blur-md rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col gap-1 z-20">
+                  <div className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">AI Score</div>
+                  <div className="text-xl font-black text-[#00C6FF]">98.5%</div>
+                </motion.div>
+                
+                <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 5, repeat: Infinity, delay: 1 }} className="absolute bottom-10 -left-6 md:-left-16 px-4 py-3 bg-white/90 backdrop-blur-md rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-gray-100 flex items-center gap-3 z-20">
+                  <div className="w-8 h-8 rounded-full bg-[#1A1A2E] flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-bold text-gray-400">OPTIMIZED</div>
+                    <div className="text-sm font-bold text-gray-800">Route found</div>
+                  </div>
+                </motion.div>
                 
                 {/* Floating decor elements */}
-                <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute -top-4 -right-6 md:-right-10 px-4 py-3 bg-white rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.08)] border border-gray-100 flex items-center gap-2">
+                <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 4.5, repeat: Infinity, delay: 0.5 }} className="absolute -top-4 -right-6 md:-right-10 px-4 py-3 bg-white rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.08)] border border-gray-100 flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#00C6FF]"></div>
                   <div className="w-8 h-2 rounded-full bg-gray-200"></div>
                 </motion.div>
-                <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 5, repeat: Infinity }} className="absolute bottom-4 -right-10 md:-right-16 px-4 py-3 bg-white rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.08)] border border-gray-100 flex items-center gap-3">
+                <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 5.5, repeat: Infinity, delay: 1.5 }} className="absolute bottom-4 -right-10 md:-right-16 px-4 py-3 bg-white rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.08)] border border-gray-100 flex items-center gap-3">
                   <div className="w-8 h-2 rounded-full bg-[#1A1A2E]"></div>
                   <div className="w-4 h-2 rounded-full bg-pink-400"></div>
                 </motion.div>
@@ -86,6 +106,9 @@ export default function Features() {
             className="bg-white rounded-[2.5rem] p-8 md:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-100/80 relative overflow-hidden flex flex-col group"
           >
             <div className="mb-8 z-10 relative">
+              <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 border border-gray-100 shadow-sm">
+                 <svg className="w-6 h-6 text-[#FF4B82]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+              </div>
               <h3 className="text-3xl md:text-[2.25rem] font-bold text-[#0A0A0E] mb-5 leading-[1.1] font-[family-name:var(--font-display)] tracking-tight">
                 Interactive<br />Route Maps
               </h3>
@@ -95,10 +118,21 @@ export default function Features() {
             </div>
             
             {/* Graphic for Card 2 (Line Chart) */}
-            <div className="flex-1 min-h-[220px] relative mt-auto flex items-end justify-center group-hover:scale-105 transition-transform duration-700">
+            <div className="flex-1 min-h-[220px] relative mt-auto flex items-end justify-center group-hover:scale-105 transition-transform duration-700 w-full">
               {/* Background grid */}
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
               
+              {/* Floating map pins */}
+              <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 3, repeat: Infinity }} className="absolute top-[20%] left-[25%] flex flex-col items-center z-20">
+                 <div className="px-2.5 py-1 bg-[#FF4B82] text-white text-[10px] font-bold rounded-md shadow-lg mb-1">Paris</div>
+                 <div className="w-2.5 h-2.5 bg-[#FF4B82] rounded-full border-2 border-white shadow-sm"></div>
+              </motion.div>
+              
+              <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 3.5, repeat: Infinity, delay: 1 }} className="absolute top-[45%] left-[50%] flex flex-col items-center z-20">
+                 <div className="px-2.5 py-1 bg-[#4AC8F5] text-white text-[10px] font-bold rounded-md shadow-lg mb-1">Tokyo</div>
+                 <div className="w-2.5 h-2.5 bg-[#4AC8F5] rounded-full border-2 border-white shadow-sm"></div>
+              </motion.div>
+
               {/* Line chart */}
               <svg className="w-[120%] h-[160px] overflow-visible relative z-10 left-[-10%]" viewBox="0 0 200 100" preserveAspectRatio="none">
                 <defs>
@@ -107,14 +141,14 @@ export default function Features() {
                     <stop offset="100%" stopColor="#4AC8F5" />
                   </linearGradient>
                 </defs>
-                <path d="M 0 90 L 40 70 L 90 85 L 150 40 L 200 20" fill="none" stroke="url(#lineGrad)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-                <circle cx="40" cy="70" r="4" fill="white" stroke="#FF4B82" strokeWidth="3" />
-                <circle cx="90" cy="85" r="4" fill="white" stroke="#FF4B82" strokeWidth="3" />
+                <path d="M 0 90 L 40 70 L 90 85 L 150 40 L 200 20" fill="none" stroke="url(#lineGrad)" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="40" cy="70" r="5" fill="white" stroke="#FF4B82" strokeWidth="3" />
+                <circle cx="90" cy="85" r="5" fill="white" stroke="#FF4B82" strokeWidth="3" />
                 
                 {/* Active point with pulse */}
-                <circle cx="150" cy="40" r="6" fill="#1E1E2E" stroke="white" strokeWidth="3" className="drop-shadow-md" />
-                <circle cx="150" cy="40" r="14" fill="none" stroke="#1E1E2E" strokeWidth="2" opacity="0.3" />
-                <circle cx="150" cy="40" r="22" fill="none" stroke="#1E1E2E" strokeWidth="1" opacity="0.1" />
+                <circle cx="150" cy="40" r="7" fill="#1E1E2E" stroke="white" strokeWidth="3" className="drop-shadow-lg" />
+                <circle cx="150" cy="40" r="16" fill="none" stroke="#1E1E2E" strokeWidth="2" opacity="0.3" />
+                <circle cx="150" cy="40" r="24" fill="none" stroke="#1E1E2E" strokeWidth="1" opacity="0.1" />
               </svg>
             </div>
           </motion.div>
@@ -131,20 +165,43 @@ export default function Features() {
               <h3 className="text-3xl md:text-[2.25rem] font-bold text-white mb-5 leading-[1.1] font-[family-name:var(--font-display)] tracking-tight">
                 Unified travel<br />center
               </h3>
+              <p className="text-blue-100 text-lg md:text-xl leading-relaxed font-medium max-w-[80%]">
+                One command center for tracking, verifying, and claiming tokens.
+              </p>
             </div>
             
             {/* Graphic for Card 3 (UI Window with floating glass elements) */}
             <div className="flex-1 min-h-[220px] relative mt-auto flex items-end justify-center w-full group-hover:scale-105 transition-transform duration-700">
-              {/* Window mock */}
-              <div className="w-[110%] h-[180px] bg-white/10 backdrop-blur-2xl rounded-t-2xl border border-white/20 relative translate-y-8 flex flex-col shadow-2xl">
-                <div className="h-10 border-b border-white/10 flex items-center px-5 gap-2">
+              {/* Complex Window mock */}
+              <div className="w-[110%] h-[200px] bg-white/10 backdrop-blur-2xl rounded-t-2xl border border-white/20 relative translate-y-8 flex flex-col shadow-2xl overflow-hidden">
+                <div className="h-12 border-b border-white/10 flex items-center px-5 gap-2 bg-white/5">
                   <div className="w-3 h-3 rounded-full bg-white/30"></div>
                   <div className="w-3 h-3 rounded-full bg-white/30"></div>
                   <div className="w-3 h-3 rounded-full bg-white/30"></div>
+                  {/* Search bar mock */}
+                  <div className="ml-4 flex-1 h-7 bg-white/10 rounded-full border border-white/5 flex items-center px-3">
+                     <div className="w-2 h-2 rounded-full bg-white/40"></div>
+                  </div>
                 </div>
-                <div className="p-6 flex-1 flex flex-col gap-4">
-                  <div className="w-full h-6 bg-white/10 rounded-md border border-white/5"></div>
-                  <div className="w-3/4 h-6 bg-white/10 rounded-md border border-white/5"></div>
+                <div className="p-5 flex-1 flex gap-5">
+                  {/* Sidebar mock */}
+                  <div className="w-1/4 h-full flex flex-col gap-3">
+                    <div className="w-full h-4 bg-white/20 rounded border border-white/10"></div>
+                    <div className="w-3/4 h-4 bg-white/10 rounded border border-white/5"></div>
+                    <div className="w-5/6 h-4 bg-white/10 rounded border border-white/5"></div>
+                  </div>
+                  {/* Main content mock */}
+                  <div className="w-3/4 h-full flex flex-col gap-4">
+                    <div className="w-full h-16 bg-gradient-to-r from-white/10 to-white/5 rounded-xl border border-white/10"></div>
+                    <div className="flex gap-3">
+                      <div className="flex-1 h-16 bg-white/10 rounded-xl border border-white/5 relative overflow-hidden">
+                         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white/20 to-transparent"></div>
+                      </div>
+                      <div className="flex-1 h-16 bg-white/10 rounded-xl border border-white/5 relative overflow-hidden">
+                         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white/20 to-transparent"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               
@@ -152,16 +209,18 @@ export default function Features() {
               <motion.div 
                 animate={{ y: [0, -10, 0] }} 
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} 
-                className="absolute top-[10%] right-[5%] px-5 py-3 bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl text-white text-sm font-semibold shadow-[0_15px_30px_rgba(0,0,0,0.1)]"
+                className="absolute top-[5%] right-[2%] px-4 py-2.5 bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl text-white text-xs font-bold shadow-[0_15px_30px_rgba(0,0,0,0.15)] flex items-center gap-2"
               >
-                Cmd + T
+                <div className="w-2 h-2 rounded-full bg-[#00C6FF]"></div>
+                Live Sync
               </motion.div>
               <motion.div 
                 animate={{ y: [0, 10, 0] }} 
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }} 
-                className="absolute bottom-[30%] left-[5%] px-5 py-3 bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl text-white text-sm font-semibold shadow-[0_15px_30px_rgba(0,0,0,0.1)]"
+                className="absolute bottom-[20%] left-[2%] px-4 py-2.5 bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl text-white text-xs font-bold shadow-[0_15px_30px_rgba(0,0,0,0.15)] flex items-center gap-2"
               >
-                Cmd + W
+                <div className="w-2 h-2 rounded-full bg-[#FF4B82]"></div>
+                Global
               </motion.div>
             </div>
           </motion.div>
