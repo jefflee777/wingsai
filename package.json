@@ -12,6 +12,7 @@
     "@prisma/client": "^6.19.3",
     "@supabase/supabase-js": "^2.105.1",
     "@tanstack/react-query": "^5.100.7",
+    "@walletconnect/ethereum-provider": "^2.23.9",
     "@walletconnect/modal": "^2.7.0",
     "framer-motion": "^12.23.12",
     "leaflet": "^1.9.4",

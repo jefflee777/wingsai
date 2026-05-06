@@ -7,6 +7,12 @@ const nextConfig = {
       ...config.resolve.alias,
       'porto/internal': false,
       'accounts': false,
+      '@base-org/account': false,
+      '@coinbase/wallet-sdk': false,
+      '@metamask/connect-evm': false,
+      'porto': false,
+      '@safe-global/safe-apps-sdk': false,
+      '@safe-global/safe-apps-provider': false,
     };
     
     return config;
