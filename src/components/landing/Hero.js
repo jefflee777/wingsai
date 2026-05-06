@@ -29,7 +29,7 @@ export default function Hero() {
           style={{ fontSize: "clamp(3.5rem, 8vw, 6.5rem)" }}
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 drop-shadow-lg">
-            Explore the World.<br />Earn $WINGS.
+            Explore the World<br />Earn $WINGS.
           </span>
         </motion.h1>
 
