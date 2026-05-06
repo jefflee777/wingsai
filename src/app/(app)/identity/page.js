@@ -16,11 +16,11 @@ export default function IdentityPage() {
   const [editing, setEditing] = useState(false);
   const [newName, setNewName] = useState("");
   const [saving, setSaving] = useState(false);
-
+ 
   useEffect(() => { loadProfile(); }, [address]);
 
   async function loadProfile() {
-    if (!address) return;
+    if (!address) return; 
     try {
       const res = await fetch(`/api/user/${address.toLowerCase()}`);
       if (!res.ok) return;
