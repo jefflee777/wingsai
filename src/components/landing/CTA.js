@@ -2,7 +2,8 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { IoLogoTwitter } from "react-icons/io5";
+
+import { RiBnbLine, RiTwitterXFill } from "react-icons/ri";
 
 export default function CTA() {
   return (
@@ -56,18 +57,16 @@ export default function CTA() {
        <div className="relative z-10 flex flex-col items-center justify-center gap-6 mt-auto">
           <div className="flex items-center gap-8">
              <Link href="https://twitter.com" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors text-sm font-semibold bg-black/5 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/20 hover:bg-black/10">
-                <IoLogoTwitter className="text-lg" />
+                <RiTwitterXFill className="text-lg" />
                 Follow on X
              </Link>
              <Link href="https://bscscan.com" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors text-sm font-semibold bg-black/5 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/20 hover:bg-black/10">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
+                <RiBnbLine className="text-lg" />
                 Bsc scan
              </Link>
           </div>
-          <div className="text-white/60 text-[11px] font-bold uppercase tracking-widest">
-            © {new Date().getFullYear()} Wings Project
+          <div className="text-white/60 text-[11px] font-semibold tracking-widest">
+            © {new Date().getFullYear()} Wings
           </div>
        </div>
     </section>
