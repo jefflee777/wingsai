@@ -47,9 +47,9 @@ export default function CTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-             <button className="px-10 py-5 bg-white text-[#0A0A0E] rounded-[1.25rem] font-bold text-xl tracking-tight shadow-[0_20px_40px_rgba(0,0,0,0.15)] hover:scale-105 hover:shadow-[0_20px_50px_rgba(255,255,255,0.4)] transition-all duration-300">
+             <Link href="/login" className="inline-block px-10 py-5 bg-white text-[#0A0A0E] rounded-[1.25rem] font-bold text-xl tracking-tight shadow-[0_20px_40px_rgba(0,0,0,0.15)] hover:scale-105 hover:shadow-[0_20px_50px_rgba(255,255,255,0.4)] transition-all duration-300">
                 Launch dashboard
-             </button>
+             </Link>
           </motion.div>
        </div>
 
