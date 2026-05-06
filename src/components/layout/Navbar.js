@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
+import Image from "next/image";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
+import { IoRocketOutline } from "react-icons/io5";
 
 const navLinks = [
   { label: "Features", href: "#features" },
@@ -26,11 +28,18 @@ export default function Navbar() {
         >
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 pl-2 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FF6B9E] to-[#FF4B82] flex items-center justify-center overflow-hidden shadow-sm group-hover:scale-105 transition-transform duration-300">
-              <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
-                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-              </svg>
+            <div className="relative w-9 h-9 rounded-xl bg-[var(--color-primary)] flex items-center justify-center overflow-hidden shadow-sm group-hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/logo.png"
+                alt="Wings"
+                width={24}
+                height={24}
+                className="relative z-10 drop-shadow-sm"
+              />
             </div>
+            <span className="text-[17px] font-bold font-[family-name:var(--font-display)] tracking-tight text-gray-900 ml-1">
+              Wings
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -39,7 +48,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-[13px] font-bold tracking-wide text-gray-900 hover:text-[#FF4B82] transition-colors duration-200"
+                className="text-[13px] font-bold tracking-wide text-gray-900 hover:text-[#007DF0] transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -50,8 +59,9 @@ export default function Navbar() {
           <div className="hidden md:flex items-center pr-1">
             <Link
               href="/login"
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-[13px] font-bold text-white bg-gradient-to-r from-[#FF7BA5] to-[#FF5C8D] hover:shadow-[0_4px_15px_rgba(255,92,141,0.4)] hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center gap-2 justify-center px-6 py-2.5 rounded-full text-[13px] font-bold text-white bg-gradient-to-r from-[#4AC8F5] via-[#2BB1FF] to-[#007DF0] hover:shadow-[0_4px_15px_rgba(43,177,255,0.4)] hover:scale-105 transition-all duration-300 border border-white/20"
             >
+              <IoRocketOutline className="text-[15px]" />
               Launch App
             </Link>
           </div>
@@ -98,8 +108,9 @@ export default function Navbar() {
               <Link
                 href="/login"
                 onClick={() => setMobileOpen(false)}
-                className="mt-6 inline-flex items-center px-8 py-3.5 rounded-full text-lg font-bold text-white bg-gradient-to-r from-[#FF7BA5] to-[#FF5C8D] shadow-lg"
+                className="mt-6 inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-lg font-bold text-white bg-gradient-to-r from-[#4AC8F5] via-[#2BB1FF] to-[#007DF0] shadow-[0_8px_20px_rgba(43,177,255,0.3)]"
               >
+                <IoRocketOutline />
                 Launch App
               </Link>
             </motion.div>
