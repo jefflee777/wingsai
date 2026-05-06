@@ -56,11 +56,11 @@ export default function CTA() {
        {/* Footer links */}
        <div className="relative z-10 flex flex-col items-center justify-center gap-6 mt-auto">
           <div className="flex items-center gap-8">
-             <Link href="https://twitter.com" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors text-sm font-semibold bg-black/5 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/20 hover:bg-black/10">
+             <Link href="https://x.com/AiWings_" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors text-sm font-semibold bg-black/5 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/20 hover:bg-black/10">
                 <RiTwitterXFill className="text-lg" />
                 Follow on X
              </Link>
-             <Link href="https://bscscan.com" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors text-sm font-semibold bg-black/5 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/20 hover:bg-black/10">
+             <Link href="https://bscscan.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors text-sm font-semibold bg-black/5 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/20 hover:bg-black/10">
                 <RiBnbLine className="text-lg" />
                 Bsc scan
              </Link>
