@@ -28,11 +28,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-white font-[family-name:var(--font-display)] font-black tracking-tighter leading-[1.02] mb-6 drop-shadow-md"
+          className="font-[family-name:var(--font-display)] font-extrabold tracking-tighter leading-[1.05] mb-6"
           style={{ fontSize: "clamp(3.5rem, 8vw, 6.5rem)" }}
         >
-          Intelligence<br />
-          at the core
+          <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 drop-shadow-lg">
+            Explore the World.<br />Earn $WINGS.
+          </span>
         </motion.h1>
 
         <motion.p
