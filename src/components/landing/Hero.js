@@ -21,9 +21,6 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center text-center px-4 w-full max-w-5xl mx-auto">
-
-
-
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
