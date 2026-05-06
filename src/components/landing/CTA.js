@@ -6,7 +6,10 @@ import { IoLogoTwitter } from "react-icons/io5";
 
 export default function CTA() {
   return (
-    <section className="relative min-h-[85vh] flex flex-col justify-between bg-gradient-to-b from-[#4AC8F5] to-[#00C6FF] overflow-hidden pt-32 pb-8">
+    <section className="relative min-h-[85vh] flex flex-col justify-between overflow-hidden pt-32 pb-8"
+    style={{
+        background: "linear-gradient(180deg, #FFFFFF 0%, #E0F7FF 20%, #00C6FF 60%, #007DF0 100%)",
+      }}>
        {/* Huge Background Text Watermark (Faded Glass Effect) */}
        <div className="absolute inset-x-0 bottom-0 flex justify-center pointer-events-none select-none z-0 overflow-hidden">
           <h1 
@@ -29,10 +32,12 @@ export default function CTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-[2.75rem] sm:text-5xl md:text-[5.5rem] lg:text-[6.5rem] font-medium text-white tracking-tighter mb-10 max-w-4xl font-[family-name:var(--font-display)] leading-[0.95]"
-            style={{ textShadow: "0 10px 40px rgba(0,0,0,0.08)" }}
+            className="font-[family-name:var(--font-display)] font-extrabold tracking-tighter leading-[1.05] mb-6 "
+            style={{ textShadow: "0 10px 40px rgba(0,0,0,0.08)", fontSize: "clamp(3rem, 8vw, 6rem)" }}
           >
-             Turn your travels into<br className="hidden md:block"/> real rewards
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 drop-shadow-lg">
+               Turn your travels into<br className="hidden md:block"/> real rewards
+            </span>
           </motion.h2>
 
           <motion.div
